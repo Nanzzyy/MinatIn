@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MinatIn - Platform Rekomendasi Universitas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ["Poppins", "sans-serif"],
+          },
+          colors: {
+            "main-green": "#00793e",
+            "dark-green": "#004825",
+            "light-green": "#01ae5a",
+            "light-mint": "#b7ffdc",
+            "dark-bg": "#1d1d1d",
+          },
+          backgroundImage: {
+            "gradient-hero":
+              "linear-gradient(63.98deg, rgb(1, 174, 90) 53.17%, rgb(1, 172, 89) 72.56%, rgb(0, 72, 37) 102.3%)",
+            "gradient-kampus":
+              "linear-gradient(-41.18deg, rgb(14, 184, 102) 54.54%, rgb(0, 105, 54) 100%)",
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .animate-float {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* Swiper custom pagination styles */
+    .swiper-pagination-bullet-active {
+      background: #b7ffdc !important;
+    }
+
+    .swiper-pagination-bullet {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Sticky Navbar Styles */
+    .nav-scrolled {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      padding-top: 16px !important;
+      padding-bottom: 16px !important;
+    }
+    .nav-scrolled .nav-link {
+      color: #004825 !important;
+    }
+    .nav-scrolled .nav-link-indicator {
+      background-color: #01ae5a !important;
+    }
+    .nav-scrolled .nav-icon-bg {
+      background-color: rgba(0, 72, 37, 0.08) !important;
+    }
+    .nav-scrolled .nav-icon {
+      filter: invert(0) brightness(0) !important;
+    }
+    .nav-scrolled .hamburger-line {
+      background-color: #004825 !important;
+    }
+
+    /* Active Scroll Navigation Indicator */
+    .nav-item.active .nav-link {
+      font-weight: 600; /* semi-bold */
+    }
+    .nav-item.active .nav-link-indicator {
+      width: 55px !important;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800">
+  <!-- START APP NAVBAR (STICKY) -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 pt-6 pb-6 border-b border-transparent">
+    <div class="container mx-auto px-6 relative flex items-center justify-between">
+      <!-- Navbar Logo - Figma style: black text + green box -->
+      <a href="#" class="flex items-center gap-0 p-0">
+        <!-- Perbesar ukuran font teks Minat -->
+        <span class="text-3xl md:text-[36px] font-bold text-black border-transparent transition-colors duration-300" id="logo-text">Minat</span>
+        <!-- Perbesar ukuran kotak text in -->
+        <span class="bg-[#00793e] flex items-center justify-center rounded-[6px] px-2 py-1 ml-1 shadow">
+          <span class="font-bold text-[24px] md:text-[30px] text-white leading-none">in</span>
+        </span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden lg:flex items-center gap-[30px] h-[63px] px-0.5" id="desktop-nav">
+        <li class="relative group flex flex-col pt-2 nav-item">
+          <a href="#beranda" class="font-light text-[24px] text-white hover:text-light-mint transition-colors nav-link">Home</a>
+          <div class="w-0 h-[3px] bg-white mt-1 group-hover:w-[55px] transform origin-left transition-all duration-300 nav-link-indicator"></div>
+        </li>
+        <li class="relative group flex flex-col pt-2 nav-item">
+          <a href="#survei" class="font-light text-[24px] text-white hover:text-light-mint transition-colors nav-link">Survei</a>
+          <div class="w-0 h-[3px] bg-white mt-1 group-hover:w-[55px] transform origin-left transition-all duration-300 nav-link-indicator"></div>
+        </li>
+        <li class="relative group flex flex-col pt-2 nav-item">
+          <a href="#kampus" class="font-light text-[24px] text-white hover:text-light-mint transition-colors nav-link">Daftar kampus</a>
+          <div class="w-0 h-[3px] bg-white mt-1 group-hover:w-[55px] transform origin-left transition-all duration-300 nav-link-indicator"></div>
+        </li>
+        <li class="relative group flex flex-col pt-2 nav-item">
+          <a href="#tentang" class="font-light text-[24px] text-white hover:text-light-mint transition-colors nav-link">Tentang Kami</a>
+          <div class="w-0 h-[3px] bg-white mt-1 group-hover:w-[55px] transform origin-left transition-all duration-300 nav-link-indicator"></div>
+        </li>
+      </ul>
+
+      <!-- Settings / Profile Icons -->
+      <div class="hidden md:flex items-center gap-[16px] h-full">
+        <button class="w-[42px] h-[42px] hover:scale-110 transition-colors bg-white/20 hover:bg-white/30 rounded-full p-2 nav-icon-bg">
+          <img src="https://www.figma.com/api/mcp/asset/5c9ee8f5-a258-4cd3-9da2-722f38a30247" alt="Settings"
+            class="w-full h-full object-contain filter brightness-0 invert transition-all duration-300 nav-icon" />
+        </button>
+        <div class="w-[2px] h-[40px] bg-white/50"></div>
+        <button class="w-[42px] h-[42px] hover:scale-110 transition-colors bg-white/20 hover:bg-white/30 rounded-full p-2 nav-icon-bg">
+          <img src="https://www.figma.com/api/mcp/asset/371e68d0-a9f6-4623-b1ce-e2dbdac54a13" alt="User Profile"
+            class="w-full h-full object-contain filter brightness-0 invert transition-all duration-300 nav-icon" />
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="lg:hidden text-white w-10 h-10 flex flex-col justify-center items-center gap-1.5 focus:outline-none z-50 relative"
+        id="mobile-menu-btn">
+        <span class="w-8 h-1 bg-white rounded-full transition-transform duration-300 shadow hamburger-line"></span>
+        <span class="w-8 h-1 bg-white rounded-full transition-opacity duration-300 shadow hamburger-line"></span>
+        <span class="w-8 h-1 bg-white rounded-full transition-transform duration-300 shadow hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header id="beranda" class="relative w-full bg-gradient-hero flex flex-col pt-0 overflow-hidden z-10" style="min-height: 700px">
+    <!-- Smooth Vector Wave Decor - Bottom Left -->
+    <div class="absolute left-0 bottom-0 w-full sm:w-[60%] lg:w-[45%] pointer-events-none z-0 overflow-hidden" style="height: 400px;">
+      <svg viewBox="0 0 500 400" fill="none" class="absolute bottom-0 left-0 w-full h-full" preserveAspectRatio="xMinYMax slice">
+        <!-- <path d="M0 400C120 400 200 350 250 200C300 50 400 0 500 0L500 400L0 400Z" fill="white" fill-opacity="0.05" /> -->
+        <path d="M0 400L0 150C80 150 150 250 250 300C350 350 450 380 500 380L500 400Z" fill="#01ae5a" />
+        <path d="M0 400L0 250C100 250 150 300 250 350C320 380 400 400 500 400Z" fill="#b7ffdc" fill-opacity="0.7"/>
+      </svg>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu"
+      class="fixed inset-0 bg-dark-green z-[110] transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8 shadow-2xl">
+      <!-- Close button for mobile menu -->
+      <button id="close-mobile-menu" class="absolute top-8 right-8 text-white focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <a href="#" class="mobile-link text-3xl text-white font-semibold">Home</a>
+      <a href="#survei" class="mobile-link text-3xl text-white font-light">Survei</a>
+      <a href="#kampus" class="mobile-link text-3xl text-white font-light">Daftar Kampus</a>
+      <a href="#tentang" class="mobile-link text-3xl text-white font-light">Tentang Kami</a>
+    </div>
+
+    <!-- Hero Content -->
+    <!-- Restore standard container to fix uneven left padding, keep text aligned with navbar -->
+    <div class="container mx-auto px-6 flex-grow flex flex-col lg:flex-row items-center justify-between relative z-10"
+      style="padding-top: 140px; padding-bottom: 40px">
+      <!-- Left: Text Area -->
+      <div class="w-full lg:w-[60%] text-left relative z-20" data-aos="fade-right">
+        <!-- Line 1 & 2: Main heading -->
+        <h1 class="font-black text-white leading-tight mb-10" style="font-size: clamp(32px, 4vw, 52px)">
+          Bingung mau kuliah dimana ?<br />
+          Yuk coba ikuti survei<br />
+          <span class="flex items-center flex-wrap gap-2 md:gap-4">
+            bersama
+            <img src="Img/Logo MinatIn Hero.svg" alt="Minat in"
+              class="h-[60px] md:h-[85px] w-auto object-contain translate-y-1 md:translate-y-2" />
+          </span>
+        </h1>
+
+        <!-- Buttons - pill-shaped matching Figma -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#survei"
+            class="inline-flex items-center justify-center px-7 py-3 rounded-full font-semibold transition-all" style="
+                background-color: #00793e;
+                color: white;
+                font-size: 22px;
+                border: 2px solid #00793e;
+              ">
+            Ikut Survei &rarr;
+          </a>
+          <a href="#kampus"
+            class="inline-flex items-center justify-center px-7 py-3 rounded-full font-semibold transition-all" style="
+                background-color: transparent;
+                color: white;
+                font-size: 22px;
+                border: 2.5px solid white;
+              ">
+            Jelajahi Kampus &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Absolute Hero Girl SVG - Berada mutlak di pojok kanan bawah tanpa margin -->
+    <div
+      class="absolute bottom-0 right-0 w-[90%] md:w-[60%] lg:w-[45%] max-w-[650px] flex justify-end items-end z-10 pointer-events-none"
+      data-aos="fade-left" data-aos-delay="100">
+      <img src="Img/Hero-Girl.svg" alt="Hero Girl" class="w-full h-full max-h-[500px] object-right-bottom object-contain pointer-events-auto"
+        style="display: block" />
+    </div>
+  </header>
+
+  <!-- SURVEI SECTION -->
+  <section id="survei" class="py-24 bg-white relative overflow-hidden z-20 shadow-[0_-15px_30px_rgba(0,0,0,0.1)]">
+    <!-- Abstract Continuous SVG Wave Overlay -->
+    <div class="absolute left-0 top-0 w-full lg:w-[60%] h-full pointer-events-none overflow-hidden z-0">
+      <svg viewBox="0 0 600 800" fill="none" class="absolute top-0 left-[-100px] md:left-[-50px] w-full h-full" preserveAspectRatio="none">
+        <path d="M-100 0C50 0 150 200 200 400C250 600 350 700 600 800L-100 800Z" fill="#b7ffdc" fill-opacity="0.2"/>
+        <path d="M-100 0C100 -50 250 150 300 350C350 550 450 750 600 800L-100 800Z" fill="#01ae5a" fill-opacity="0.05"/>
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-end gap-16">
+      <!-- Guidelines text -->
+      <div class="w-full lg:w-[55%] flex flex-col pl-0 md:pl-10 relative z-20" data-aos="fade-left">
+        <h2 class="text-4xl md:text-[40px] font-black mb-12">
+          Tata Cara <span class="text-main-green">Mengisi Survei !</span>
+        </h2>
+
+        <!-- Steps Timeline (Using clean line & circles like figma) -->
+        <div class="relative ml-0 md:ml-4 mb-12">
+          <!-- Custom Dash Line connecting circles -->
+          <!-- Absolute dash line centered precisely on the 60px circles (30px - 2px border = 28px left) -->
+          <div
+            class="absolute left-[28px] top-[30px] bottom-[30px] w-0 border-l-[4px] border-dashed border-gray-300 z-0">
+          </div>
+
+          <div class="flex flex-col gap-10">
+            <!-- Step 1 -->
+            <div class="flex items-center gap-6 relative" data-aos="fade-up" data-aos-delay="100">
+              <div
+                class="w-[60px] h-[60px] flex-shrink-0 bg-dark-green rounded-full flex items-center justify-center shadow-lg relative z-10">
+                <span class="text-white text-[36px] font-black">1</span>
+              </div>
+              <p class="text-[24px] font-light text-black">
+                Klik Tombol "<span class="font-semibold text-dark-green">Masuk Survei</span>"
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex items-center gap-6 relative" data-aos="fade-up" data-aos-delay="200">
+              <div
+                class="w-[60px] h-[60px] flex-shrink-0 bg-dark-green rounded-full flex items-center justify-center shadow-lg relative z-10">
+                <span class="text-white text-[36px] font-black">2</span>
+              </div>
+              <p class="text-[24px] font-light text-black">
+                Masukkan Jurusan SMK
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="flex items-center gap-6 relative" data-aos="fade-up" data-aos-delay="300">
+              <div
+                class="w-[60px] h-[60px] flex-shrink-0 bg-dark-green rounded-full flex items-center justify-center shadow-lg relative z-10">
+                <span class="text-white text-[36px] font-black">3</span>
+              </div>
+              <p class="text-[24px] font-light text-black">
+                Masukkan nama
+                <span class="font-bold text-dark-green">(opsional)</span>
+              </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="flex items-center gap-6 relative" data-aos="fade-up" data-aos-delay="400">
+              <div
+                class="w-[60px] h-[60px] flex-shrink-0 bg-dark-green rounded-full flex items-center justify-center shadow-lg relative z-10">
+                <span class="text-white text-[36px] font-black">4</span>
+              </div>
+              <p class="text-[24px] font-light text-black">
+                Jawab pertanyaan dengan jujur
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="500">
+          <button
+            class="bg-dark-green hover:bg-main-green text-white px-5 py-2.5 rounded-2xl font-semibold text-[20px] transition-all shadow-lg hover:-translate-y-1 hover:shadow-xl text-center">
+            Masuk Survei &rarr;
+          </button>
+          <a href="daftar-kampus.html"
+            class="border-[5px] border-light-green text-light-green hover:bg-light-green hover:text-white px-5 py-2.5 rounded-2xl font-semibold text-[20px] transition-all shadow-lg hover:-translate-y-1 hover:shadow-xl text-center inline-flex items-center justify-center">
+            Jelajahi Kampus &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left: Absolute Girl Having Idea SVG - Posisi mutlak di kiri bawah, ukurannya diperbesar sedikit tanpa whitespace di bawah -->
+    <div
+      class="absolute bottom-0 left-0 w-[90%] md:w-[50%] lg:w-[45%] max-w-[650px] flex justify-start items-end z-10 pointer-events-none"
+      data-aos="fade-right"
+    >
+      <!-- Lightbulb animation -->
+      <div class="absolute top-[-50px] lg:top-[-80px] right-[25%] animate-bounce">
+        <img src="https://www.figma.com/api/mcp/asset/769fc295-0534-479e-8ba3-b5068e221333" alt="Lightbulb"
+          class="w-[80px] md:w-[135px] h-auto transform -rotate-12 pointer-events-auto" />
+      </div>
+      <img src="https://www.figma.com/api/mcp/asset/74745e95-c41a-446b-b936-7f81074d9b20" alt="Girl Having Idea"
+        class="w-[95%] lg:w-full h-auto object-contain scale-x-[-1] drop-shadow-2xl pointer-events-auto" style="display: block; margin-bottom: 0px; transform-origin: bottom center;" />
+    </div>
+  </section>
+
+  <!-- DAFTAR KAMPUS SECTION (CAROUSEL) -->
+  <section id="kampus" class="py-24 bg-gradient-kampus relative overflow-hidden">
+    <!-- Clean Vector Wave Texture for Kampus -->
+    <div class="absolute inset-0 pointer-events-none z-0">
+      <svg viewBox="0 0 1440 600" fill="none" class="absolute w-full h-full top-0 left-0" preserveAspectRatio="none">
+        <path d="M0 0 L1440 0 L1440 600 L0 600 Z" fill="url(#kampus-grad)" opacity="0.3"/>
+        <path d="M1440 100C1000 300 800 -100 0 300L0 600L1440 600Z" fill="white" fill-opacity="0.05"/>
+        <path d="M1440 250C1200 400 900 100 0 500L0 0L1440 0Z" fill="black" fill-opacity="0.05"/>
+        <defs>
+          <linearGradient id="kampus-grad" x1="0" y1="0" x2="1440" y2="600" gradientUnits="userSpaceOnUse">
+            <stop stop-color="white" stop-opacity="0.2" />
+            <stop offset="1" stop-color="transparent" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-6 max-w-[1200px] relative z-10 flex flex-col">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+        <h2 class="text-4xl md:text-5xl font-black text-white drop-shadow-md" data-aos="fade-right">
+          Rekomendasi <br />
+          Kampus Favorit
+        </h2>
+
+        <!-- FIX: changed link to daftar-kampus.html -->
+        <a href="daftar-kampus.html"
+          class="font-normal text-[24px] text-white hover:text-light-mint transition-colors drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] flex items-center group"
+          data-aos="fade-left">
+          Eksplorasi Lagi
+          <span class="ml-2 group-hover:translate-x-2 transition-transform">&rarr;</span>
+        </a>
+      </div>
+
+      <!-- FIX: Replacing Grid with Swiper Carousel -->
+      <div class="swiper kampus-swiper w-full pb-16" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide !w-auto">
+            <div
+              class="bg-[#d9d9d9] w-[300px] md:w-[411px] h-[390px] rounded-[16px] relative p-[15px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] transform transition-transform hover:-translate-y-2 group flex flex-col justify-between">
+              <div class="w-full h-[60%] rounded-[8px] overflow-hidden relative">
+                <img src="https://www.figma.com/api/mcp/asset/94abba19-fb26-4353-9543-4c7768aaca20"
+                  alt="Universitas Indonesia"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="w-full h-[40%] flex flex-col justify-end pb-2">
+                <h3 class="font-semibold text-[24px] text-[#00a957] whitespace-nowrap mb-4 truncate text-left">
+                  Universitas Indonesia
+                </h3>
+                <a href="#" class="flex items-center gap-1 group/link w-max">
+                  <span
+                    class="font-normal text-[15px] text-black underline underline-offset-4 decoration-black/50 group-hover/link:decoration-main-green group-hover/link:text-main-green transition-colors">Masuk
+                    ke website kampus</span>
+                  <svg class="w-4 h-4 ml-0.5 group-hover/link:translate-x-1 transition-transform" fill="none"
+                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide !w-auto">
+            <div
+              class="bg-[#d9d9d9] w-[300px] md:w-[411px] h-[390px] rounded-[16px] relative p-[15px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] transform transition-transform hover:-translate-y-2 group flex flex-col justify-between">
+              <div class="w-full h-[60%] rounded-[8px] overflow-hidden relative">
+                <img src="https://www.figma.com/api/mcp/asset/94abba19-fb26-4353-9543-4c7768aaca20"
+                  alt="Institut Teknologi Bandung"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="w-full h-[40%] flex flex-col justify-end pb-2">
+                <h3 class="font-semibold text-[24px] text-[#00a957] whitespace-nowrap mb-4 truncate text-left">
+                  Institut Teknologi Bandung
+                </h3>
+                <a href="#" class="flex items-center gap-1 group/link w-max">
+                  <span
+                    class="font-normal text-[15px] text-black underline underline-offset-4 decoration-black/50 group-hover/link:decoration-main-green group-hover/link:text-main-green transition-colors">Masuk
+                    ke website kampus</span>
+                  <svg class="w-4 h-4 ml-0.5 group-hover/link:translate-x-1 transition-transform" fill="none"
+                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide !w-auto">
+            <div
+              class="bg-[#d9d9d9] w-[300px] md:w-[411px] h-[390px] rounded-[16px] relative p-[15px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] transform transition-transform hover:-translate-y-2 group flex flex-col justify-between">
+              <div class="w-full h-[60%] rounded-[8px] overflow-hidden relative">
+                <img src="https://www.figma.com/api/mcp/asset/94abba19-fb26-4353-9543-4c7768aaca20"
+                  alt="Universitas Gadjah Mada"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="w-full h-[40%] flex flex-col justify-end pb-2">
+                <h3 class="font-semibold text-[24px] text-[#00a957] whitespace-nowrap mb-4 truncate text-left">
+                  Universitas Gadjah Mada
+                </h3>
+                <a href="#" class="flex items-center gap-1 group/link w-max">
+                  <span
+                    class="font-normal text-[15px] text-black underline underline-offset-4 decoration-black/50 group-hover/link:decoration-main-green group-hover/link:text-main-green transition-colors">Masuk
+                    ke website kampus</span>
+                  <svg class="w-4 h-4 ml-0.5 group-hover/link:translate-x-1 transition-transform" fill="none"
+                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide !w-auto">
+            <div
+              class="bg-[#d9d9d9] w-[300px] md:w-[411px] h-[390px] rounded-[16px] relative p-[15px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] transform transition-transform hover:-translate-y-2 group flex flex-col justify-between">
+              <div class="w-full h-[60%] rounded-[8px] overflow-hidden relative">
+                <img src="https://www.figma.com/api/mcp/asset/94abba19-fb26-4353-9543-4c7768aaca20"
+                  alt="Universitas Airlangga"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="w-full h-[40%] flex flex-col justify-end pb-2">
+                <h3 class="font-semibold text-[24px] text-[#00a957] whitespace-nowrap mb-4 truncate text-left">
+                  Universitas Airlangga
+                </h3>
+                <a href="#" class="flex items-center gap-1 group/link w-max">
+                  <span
+                    class="font-normal text-[15px] text-black underline underline-offset-4 decoration-black/50 group-hover/link:decoration-main-green group-hover/link:text-main-green transition-colors">Masuk
+                    ke website kampus</span>
+                  <svg class="w-4 h-4 ml-0.5 group-hover/link:translate-x-1 transition-transform" fill="none"
+                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination bullets -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TENTANG KAMI SECTION -->
+  <section id="tentang" class="py-24 bg-white relative overflow-hidden z-10">
+    <!-- Continuing SVG Wave on Left side -->
+    <div class="absolute left-0 top-0 w-full sm:w-[80%] lg:w-[60%] h-full pointer-events-none z-0">
+      <svg viewBox="0 0 800 600" fill="none" class="absolute top-0 left-[-150px] w-full h-[120%]" preserveAspectRatio="none">
+        <path d="M0 600C200 600 350 400 450 100C550 0 700 0 800 0L0 0Z" fill="#01ae5a" fill-opacity="0.05"/>
+        <path d="M0 600C150 450 250 200 300 0L0 0Z" fill="#b7ffdc" fill-opacity="0.3"/>
+      </svg>
+    </div>
+
+    <!-- Floating Graphic Object / Photo Placeholder -->
+    <div
+      class="hidden lg:flex items-center justify-center absolute right-[5%] lg:right-[15%] top-[122px] w-[383px] h-[413px] rounded-[20px] bg-gradient-to-br from-light-mint to-white overflow-hidden shadow-2xl border border-gray-100"
+      data-aos="fade-left" data-aos-duration="1500">
+      <svg viewBox="0 0 383 413" fill="none" class="w-full h-full absolute inset-0 opacity-40">
+        <circle cx="100" cy="100" r="150" fill="#01ae5a" filter="blur(40px)"/>
+        <circle cx="300" cy="300" r="180" fill="#00793e" filter="blur(60px)"/>
+        <path d="M0 200C100 250 200 150 383 250L383 413L0 413Z" fill="white" fill-opacity="0.8"/>
+      </svg>
+      <div class="relative z-10 flex text-main-green/80 items-center justify-center flex-col">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+        <span class="font-semibold text-lg">MinatIn Platform</span>
+      </div>
+    </div>
+
+    <div class="container mx-auto px-6 lg:px-12 relative z-10 flex text-left relative min-h-[500px] items-center">
+      
+
+      <!-- Main Content Card matching the absolute styling logic but responsive -->
+      <div
+        class="w-full lg:w-[60%] xl:w-[834px] bg-white border border-black rounded-[15px] p-6 sm:p-10 md:p-[20px] shadow-[7px_6px_4px_0px_rgba(0,0,0,0.25)] relative z-10"
+        data-aos="zoom-in" data-aos-duration="1000">
+
+        <div
+        class="hidden lg:block absolute top-[10px] right-[50px] text-[120px] font-serif text-main-green/100 leading-none pointer-events-none z-0 select-none font-bold">
+        "
+      </div>
+        <h2 class="text-[40px] font-black text-dark-green mb-6 flex items-center gap-4">
+          Tentang Kami
+        </h2>
+
+        <div class="text-[20px] md:text-[24px] font-light text-dark-green leading-relaxed">
+          <span class="font-bold text-[24px] md:text-[28px]">MinatIn </span>
+          adalah sebuah platform digital yang dibangun oleh
+          <span class="italic font-bold">6xKu</span>
+          pada tahun 2026.
+          <span class="italic font-medium">Platform</span> ini bisa digunakan
+          oleh kalangan umum terutama siswa yang bingung akan nantinya mau
+          melanjutkan masuk perguruan tinggi (kuliah) nya dimana.
+          <span class="italic font-medium">Website</span> ini bisa diakses dan
+          digunakan dengan mudah oleh para siswa. Hanya dengan mengisi dan
+          menjawab pertanyaan terkait minat dan bakat, siswa dapat
+          direkomendasikan nanti cocoknya masuk ke perguruan tinggi mana dan
+          jurusan apa.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark-bg pt-[30px] pb-[30px]" id="footer">
+    <div class="container mx-auto px-6 md:px-[40px]">
+      <div class="flex flex-col md:flex-row justify-between gap-y-[32px] md:gap-x-12 mb-10">
+        <div class="w-full md:w-[60%] max-w-[677px] flex flex-col gap-[9px]" data-aos="fade-right">
+          <!-- Foot Logo -->
+          <div class="flex items-center gap-[5px] h-[63px] p-[5px] rounded-[2px] w-[165px] group">
+            <div class="flex h-[45px] items-center justify-center pl-[4px] pr-[2px] py-[2px]">
+              <span class="text-[36px] font-semibold text-white">Minat</span>
+            </div>
+            <div
+              class="bg-main-green px-[3px] py-[2px] rounded-[2px] h-[45px] flex items-center justify-center w-[46px]">
+              <span class="text-[36px] font-bold text-white w-[33px]">in</span>
+            </div>
+          </div>
+
+          <p class="text-white text-[16px] font-light leading-relaxed">
+            <span class="font-bold text-white">MinatIn </span>
+            adalah sebuah platform digital yang dibangun oleh
+            <span class="font-bold italic">6xKu</span>
+            pada tahun 2026. <span class="italic">Platform</span>
+            bisa digunakan oleh kalangan umum terutama siswa yang bingung akan
+            nantinya mau melanjutkan masuk perguruan tinggi (kuliah) nya
+            dimana.
+          </p>
+        </div>
+
+        <div class="w-full md:w-[35%] flex flex-col gap-[2px]" data-aos="fade-left">
+          <div class="inline-grid leading-[0] place-items-start mt-4 mb-4 w-max">
+            <h4 class="font-bold text-[20px] text-white whitespace-nowrap mb-2">
+              Navigasi
+            </h4>
+          </div>
+
+          <ul class="flex flex-col gap-2">
+            <li>
+              <a href="#"
+                class="text-[20px] text-white font-light hover:text-light-mint inline-block transition-colors">Home</a>
+            </li>
+            <li>
+              <a href="#survei"
+                class="text-[20px] text-white font-light hover:text-light-mint inline-block transition-colors">Survei</a>
+            </li>
+            <li>
+              <a href="#kampus"
+                class="text-[20px] text-white font-light hover:text-light-mint inline-block transition-colors">Daftar
+                Kampus</a>
+            </li>
+            <li>
+              <a href="#tentang"
+                class="text-[20px] text-white font-light hover:text-light-mint inline-block transition-colors">Tentang
+                Kami</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="w-full flex flex-col items-center gap-[32px] pt-8 border-t border-white/20">
+        <p class="text-white font-normal text-center text-[16px]">
+          @2026 MinatIn. All Rights Reserved
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    AOS.init({
+      once: true,
+      offset: 100,
+      duration: 800,
+      easing: "ease-out-cubic",
+    });
+
+    // Initialize Swiper
+    var swiper = new Swiper(".kampus-swiper", {
+      slidesPerView: "auto",
+      spaceBetween: 30,
+      grabCursor: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        // when window width is >= 768px
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        // when window width is >= 1024px
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 40,
+        },
+      },
+    });
+
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeBtn = document.getElementById("close-mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        mobileMenu.classList.remove("translate-x-full");
+        document.body.style.overflow = "hidden";
+      } else {
+        mobileMenu.classList.add("translate-x-full");
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    menuBtn.addEventListener("click", toggleMenu);
+    if(closeBtn) closeBtn.addEventListener("click", toggleMenu);
+    
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (isMenuOpen) toggleMenu();
+      });
+    });
+
+    // Sticky Navbar Logic
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add("nav-scrolled");
+      } else {
+        navbar.classList.remove("nav-scrolled");
+      }
+    });
+
+    // ScrollSpy Logic for Navbar Active States
+    const sections = document.querySelectorAll("header#beranda, section#survei, section#kampus, section#tentang");
+    const navItems = document.querySelectorAll(".nav-item");
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -60% 0px", // adjust thresholds to detect middle of screen
+      threshold: 0
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const currentId = entry.target.id;
+          navItems.forEach(item => {
+            const link = item.querySelector("a");
+            if (link.getAttribute("href") === `#${currentId}`) {
+              item.classList.add("active");
+            } else {
+              item.classList.remove("active");
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(sec => sectionObserver.observe(sec));
+  </script>
+</body>
+
+</html>
