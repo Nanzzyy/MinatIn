@@ -101,30 +101,30 @@
   </div>
 
   <!-- MAIN CATALOG SECTION -->
-  <main class="w-full bg-gradient-dark min-h-screen py-16">
-    <div class="container mx-auto px-6 max-w-[1200px]">
+  <main class="w-full bg-gradient-dark min-h-screen py-8 sm:py-12 md:py-16">
+    <div class="container mx-auto px-4 sm:px-6 max-w-[1200px]">
       
       <!-- Title Area -->
       <div class="flex flex-col mb-12 text-center" data-aos="fade-up">
-        <h1 class="text-4xl md:text-5xl lg:text-[48px] font-black text-white mb-4">
+        <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-[48px] font-black text-white mb-3 sm:mb-4">
           Daftar Kampus <span class="text-main-green">Pilihan Terbaik</span>
         </h1>
-        <p class="text-gray-400 text-lg md:text-xl font-light max-w-2xl mx-auto">
+        <p class="text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl font-light max-w-2xl mx-auto px-2">
           Temukan berbagai kampus terbaik yang telah kami kurasi khusus untuk minat dan bakat Anda.
         </p>
       </div>
 
       <!-- Search & Filter (Static Visual only for matching Figma) -->
-      <div class="flex justify-between items-center mb-10 w-full max-w-4xl mx-auto bg-[#2a2a2a] p-2 rounded-xl shadow-lg border border-white/10" data-aos="fade-up" data-aos-delay="50">
-         <div class="flex flex-1 items-center px-4">
-            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-            <input type="text" placeholder="Cari kampus favorit Anda..." class="w-full bg-transparent border-none text-white px-4 py-2 focus:outline-none placeholder-gray-500 font-light">
+      <div class="flex flex-col sm:flex-row justify-between items-stretch sm:items-center mb-6 sm:mb-10 w-full max-w-4xl mx-auto bg-[#2a2a2a] p-2 rounded-xl shadow-lg border border-white/10 gap-2 sm:gap-0" data-aos="fade-up" data-aos-delay="50">
+         <div class="flex flex-1 items-center px-2 sm:px-4">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <input type="text" placeholder="Cari kampus favorit Anda..." class="w-full bg-transparent border-none text-white px-2 sm:px-4 py-2 focus:outline-none placeholder-gray-500 font-light text-sm sm:text-base">
          </div>
-         <button class="bg-main-green hover:bg-light-green text-white px-6 py-2 rounded-lg transition-colors font-medium">Cari</button>
+         <button class="bg-main-green hover:bg-light-green text-white px-4 sm:px-6 py-2 rounded-lg transition-colors font-medium text-sm sm:text-base w-full sm:w-auto">Cari</button>
       </div>
 
       <!-- Card Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 pb-8 sm:pb-16">
         
         <!-- Campus Card Generator Function (For demonstration) -->
         <script>
@@ -132,13 +132,13 @@
         </script>
         
         <!-- Card 1 -->
-        <div class="bg-[#d9d9d9] w-full h-[390px] rounded-[16px] relative p-[15px] shadow-2xl transform transition-transform hover:-translate-y-2 group overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-            <div class="w-full h-[252px] rounded-[8px] overflow-hidden relative">
+        <div class="bg-[#d9d9d9] w-full h-[320px] sm:h-[350px] md:h-[390px] rounded-[16px] relative p-[12px] sm:p-[15px] shadow-2xl transform transition-transform hover:-translate-y-2 group overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-full h-[55%] sm:h-[60%] rounded-[8px] overflow-hidden relative">
                 <img src="https://www.figma.com/api/mcp/asset/94abba19-fb26-4353-9543-4c7768aaca20" alt="UI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 filter brightness-90 group-hover:brightness-100">
             </div>
-            <h3 class="font-semibold text-[24px] text-[#00a957] whitespace-nowrap mt-4 mb-2 truncate">Universitas Indonesia</h3>
+            <h3 class="font-semibold text-[18px] sm:text-[20px] md:text-[24px] text-[#00a957] whitespace-nowrap mt-3 sm:mt-4 mb-2 truncate">Universitas Indonesia</h3>
             <a href="#" class="flex items-center gap-1 group/link">
-                <span class="font-light text-[15px] text-black underline underline-offset-4 decoration-black/50 group-hover/link:decoration-main-green group-hover/link:text-main-green transition-colors">Masuk ke website kampus</span>
+                <span class="font-light text-[13px] sm:text-[15px] text-black underline underline-offset-4 decoration-black/50 group-hover/link:decoration-main-green group-hover/link:text-main-green transition-colors">Masuk ke website kampus</span>
                 <img src="https://www.figma.com/api/mcp/asset/e6f44362-6377-4630-9428-d9b7e494d62e" alt="arrow" class="w-[20px] group-hover/link:translate-x-1 transition-transform filter group-hover/link:hue-rotate-180" />
             </a>
         </div>

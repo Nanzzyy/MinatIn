@@ -173,7 +173,7 @@
   </nav>
 
   <!-- HERO SECTION -->
-  <header id="beranda" class="relative w-full bg-gradient-hero flex flex-col pt-0 overflow-hidden z-10" style="min-height: 700px">
+  <header id="beranda" class="relative w-full bg-gradient-hero flex flex-col pt-0 overflow-hidden z-10 min-h-[520px] sm:min-h-[600px] md:min-h-[650px] lg:min-h-[700px]">
     <!-- Smooth Vector Wave Decor - Bottom Left -->
     <div class="absolute left-0 bottom-0 w-full sm:w-[60%] lg:w-[45%] pointer-events-none z-0 overflow-hidden" style="height: 400px;">
       <svg viewBox="0 0 500 400" fill="none" class="absolute bottom-0 left-0 w-full h-full" preserveAspectRatio="xMinYMax slice">
@@ -200,56 +200,45 @@
 
     <!-- Hero Content -->
     <!-- Restore standard container to fix uneven left padding, keep text aligned with navbar -->
-    <div class="container mx-auto px-6 flex-grow flex flex-col lg:flex-row items-center justify-between relative z-10"
-      style="padding-top: 140px; padding-bottom: 40px">
+    <div class="container mx-auto px-6 flex-grow flex flex-col lg:flex-row items-center justify-between relative z-10 pt-[100px] sm:pt-[120px] md:pt-[140px] pb-[60px] sm:pb-[80px] md:pb-[100px] lg:pb-[40px]">
       <!-- Left: Text Area -->
       <div class="w-full lg:w-[60%] text-left relative z-20" data-aos="fade-right">
         <!-- Line 1 & 2: Main heading -->
-        <h1 class="font-black text-white leading-tight mb-10" style="font-size: clamp(32px, 4vw, 52px)">
+        <h1 class="font-black text-white leading-tight mb-6 sm:mb-8 md:mb-10 text-[24px] sm:text-[28px] md:text-[40px] lg:text-[52px]">
           Bingung mau kuliah dimana ?<br />
           Yuk coba ikuti survei<br />
-          <span class="flex items-center flex-wrap gap-2 md:gap-4">
+          <span class="flex items-center flex-wrap gap-2 md:gap-4 mt-1 sm:mt-2">
             bersama
             <img src="Img/Logo MinatIn Hero.svg" alt="Minat in"
-              class="h-[60px] md:h-[85px] w-auto object-contain translate-y-1 md:translate-y-2" />
+              class="h-[32px] sm:h-[45px] md:h-[60px] lg:h-[85px] w-auto object-contain translate-y-1 md:translate-y-2" />
           </span>
         </h1>
 
         <!-- Buttons - pill-shaped matching Figma -->
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="#survei"
-            class="inline-flex items-center justify-center px-7 py-3 rounded-full font-semibold transition-all" style="
-                background-color: #00793e;
-                color: white;
-                font-size: 22px;
-                border: 2px solid #00793e;
-              ">
+            class="inline-flex items-center justify-center px-5 sm:px-6 md:px-7 py-2.5 sm:py-3 rounded-full font-semibold transition-all bg-[#00793e] text-white text-[15px] sm:text-[18px] md:text-[22px] border-2 border-[#00793e]">
             Ikut Survei &rarr;
           </a>
           <a href="#kampus"
-            class="inline-flex items-center justify-center px-7 py-3 rounded-full font-semibold transition-all" style="
-                background-color: transparent;
-                color: white;
-                font-size: 22px;
-                border: 2.5px solid white;
-              ">
+            class="inline-flex items-center justify-center px-5 sm:px-6 md:px-7 py-2.5 sm:py-3 rounded-full font-semibold transition-all bg-transparent text-white text-[15px] sm:text-[18px] md:text-[22px] border-[2.5px] border-white">
             Jelajahi Kampus &rarr;
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Right: Absolute Hero Girl SVG - Berada mutlak di pojok kanan bawah tanpa margin -->
+    <!-- Right: Absolute Hero Girl SVG - Hidden on mobile, shown on desktop -->
     <div
-      class="absolute bottom-0 right-0 w-[90%] md:w-[60%] lg:w-[45%] max-w-[650px] flex justify-end items-end z-10 pointer-events-none"
+      class="hidden lg:flex absolute bottom-0 right-0 w-[45%] max-w-[650px] justify-end items-end z-10 pointer-events-none"
       data-aos="fade-left" data-aos-delay="100">
-      <img src="Img/Hero-Girl.svg" alt="Hero Girl" class="w-full h-full max-h-[500px] object-right-bottom object-contain pointer-events-auto"
+      <img src="Img/Hero-Girl.svg" alt="Hero Girl" class="w-full h-full max-h-[500px] object-right-bottom object-contain pointer-events-auto scale-x-[-1]"
         style="display: block" />
     </div>
   </header>
 
   <!-- SURVEI SECTION -->
-  <section id="survei" class="py-24 bg-white relative overflow-hidden z-20 shadow-[0_-15px_30px_rgba(0,0,0,0.1)]">
+  <section id="survei" class="py-12 sm:py-16 md:py-24 bg-white relative overflow-hidden z-20 shadow-[0_-15px_30px_rgba(0,0,0,0.1)]">
     <!-- Abstract Continuous SVG Wave Overlay -->
     <div class="absolute left-0 top-0 w-full lg:w-[60%] h-full pointer-events-none overflow-hidden z-0">
       <svg viewBox="0 0 600 800" fill="none" class="absolute top-0 left-[-100px] md:left-[-50px] w-full h-full" preserveAspectRatio="none">
@@ -258,63 +247,63 @@
       </svg>
     </div>
 
-    <div class="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-end gap-16">
+    <div class="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-end gap-10 sm:gap-16 pb-[60px] sm:pb-[80px] md:pb-[100px] lg:pb-0">
       <!-- Guidelines text -->
       <div class="w-full lg:w-[55%] flex flex-col pl-0 md:pl-10 relative z-20" data-aos="fade-left">
-        <h2 class="text-4xl md:text-[40px] font-black mb-12">
+        <h2 class="text-[24px] sm:text-[28px] md:text-4xl lg:text-[40px] font-black mb-6 sm:mb-8 md:mb-12 leading-tight">
           Tata Cara <span class="text-main-green">Mengisi Survei !</span>
         </h2>
 
         <!-- Steps Timeline (Using clean line & circles like figma) -->
-        <div class="relative ml-0 md:ml-4 mb-12">
+        <div class="relative ml-0 md:ml-4 mb-10 md:mb-12">
           <!-- Custom Dash Line connecting circles -->
           <!-- Absolute dash line centered precisely on the 60px circles (30px - 2px border = 28px left) -->
           <div
-            class="absolute left-[28px] top-[30px] bottom-[30px] w-0 border-l-[4px] border-dashed border-gray-300 z-0">
+            class="absolute left-[24px] md:left-[28px] top-[30px] bottom-[30px] w-0 border-l-[3px] md:border-l-[4px] border-dashed border-gray-300 z-0">
           </div>
 
-          <div class="flex flex-col gap-10">
+          <div class="flex flex-col gap-5 sm:gap-8 md:gap-10">
             <!-- Step 1 -->
-            <div class="flex items-center gap-6 relative" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-center gap-4 md:gap-6 relative" data-aos="fade-up" data-aos-delay="100">
               <div
-                class="w-[60px] h-[60px] flex-shrink-0 bg-dark-green rounded-full flex items-center justify-center shadow-lg relative z-10">
-                <span class="text-white text-[36px] font-black">1</span>
+                class="w-[50px] h-[50px] md:w-[60px] md:h-[60px] flex-shrink-0 bg-dark-green rounded-full flex items-center justify-center shadow-lg relative z-10">
+                <span class="text-white text-[24px] md:text-[36px] font-black">1</span>
               </div>
-              <p class="text-[24px] font-light text-black">
+              <p class="text-[15px] sm:text-[18px] md:text-[24px] font-light text-black">
                 Klik Tombol "<span class="font-semibold text-dark-green">Masuk Survei</span>"
               </p>
             </div>
 
             <!-- Step 2 -->
-            <div class="flex items-center gap-6 relative" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex items-center gap-4 md:gap-6 relative" data-aos="fade-up" data-aos-delay="200">
               <div
-                class="w-[60px] h-[60px] flex-shrink-0 bg-dark-green rounded-full flex items-center justify-center shadow-lg relative z-10">
-                <span class="text-white text-[36px] font-black">2</span>
+                class="w-[50px] h-[50px] md:w-[60px] md:h-[60px] flex-shrink-0 bg-dark-green rounded-full flex items-center justify-center shadow-lg relative z-10">
+                <span class="text-white text-[24px] md:text-[36px] font-black">2</span>
               </div>
-              <p class="text-[24px] font-light text-black">
+              <p class="text-[15px] sm:text-[18px] md:text-[24px] font-light text-black">
                 Masukkan Jurusan SMK
               </p>
             </div>
 
             <!-- Step 3 -->
-            <div class="flex items-center gap-6 relative" data-aos="fade-up" data-aos-delay="300">
+            <div class="flex items-center gap-4 md:gap-6 relative" data-aos="fade-up" data-aos-delay="300">
               <div
-                class="w-[60px] h-[60px] flex-shrink-0 bg-dark-green rounded-full flex items-center justify-center shadow-lg relative z-10">
-                <span class="text-white text-[36px] font-black">3</span>
+                class="w-[50px] h-[50px] md:w-[60px] md:h-[60px] flex-shrink-0 bg-dark-green rounded-full flex items-center justify-center shadow-lg relative z-10">
+                <span class="text-white text-[24px] md:text-[36px] font-black">3</span>
               </div>
-              <p class="text-[24px] font-light text-black">
+              <p class="text-[15px] sm:text-[18px] md:text-[24px] font-light text-black leading-tight">
                 Masukkan nama
-                <span class="font-bold text-dark-green">(opsional)</span>
+                <span class="font-bold text-dark-green block sm:inline">(opsional)</span>
               </p>
             </div>
 
             <!-- Step 4 -->
-            <div class="flex items-center gap-6 relative" data-aos="fade-up" data-aos-delay="400">
+            <div class="flex items-center gap-4 md:gap-6 relative" data-aos="fade-up" data-aos-delay="400">
               <div
-                class="w-[60px] h-[60px] flex-shrink-0 bg-dark-green rounded-full flex items-center justify-center shadow-lg relative z-10">
-                <span class="text-white text-[36px] font-black">4</span>
+                class="w-[50px] h-[50px] md:w-[60px] md:h-[60px] flex-shrink-0 bg-dark-green rounded-full flex items-center justify-center shadow-lg relative z-10">
+                <span class="text-white text-[24px] md:text-[36px] font-black">4</span>
               </div>
-              <p class="text-[24px] font-light text-black">
+              <p class="text-[15px] sm:text-[18px] md:text-[24px] font-light text-black">
                 Jawab pertanyaan dengan jujur
               </p>
             </div>
@@ -323,11 +312,11 @@
 
         <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="500">
           <button
-            class="bg-dark-green hover:bg-main-green text-white px-5 py-2.5 rounded-2xl font-semibold text-[20px] transition-all shadow-lg hover:-translate-y-1 hover:shadow-xl text-center">
+            class="bg-dark-green hover:bg-main-green text-white px-5 py-2.5 sm:py-3 md:py-2.5 rounded-2xl font-semibold text-[15px] sm:text-[18px] md:text-[20px] transition-all shadow-lg hover:-translate-y-1 hover:shadow-xl text-center">
             Masuk Survei &rarr;
           </button>
           <a href="daftar-kampus.html"
-            class="border-[5px] border-light-green text-light-green hover:bg-light-green hover:text-white px-5 py-2.5 rounded-2xl font-semibold text-[20px] transition-all shadow-lg hover:-translate-y-1 hover:shadow-xl text-center inline-flex items-center justify-center">
+            class="border-[3px] md:border-[5px] border-light-green text-light-green hover:bg-light-green hover:text-white px-5 py-2.5 sm:py-3 md:py-2.5 rounded-2xl font-semibold text-[15px] sm:text-[18px] md:text-[20px] transition-all shadow-lg hover:-translate-y-1 hover:shadow-xl text-center inline-flex items-center justify-center">
             Jelajahi Kampus &rarr;
           </a>
         </div>
@@ -335,22 +324,23 @@
     </div>
 
     <!-- Left: Absolute Girl Having Idea SVG - Posisi mutlak di kiri bawah, ukurannya diperbesar sedikit tanpa whitespace di bawah -->
+    <!-- Girl Having Idea - Hidden on small mobile to prevent overlap, shown from sm breakpoint -->
     <div
-      class="absolute bottom-0 left-0 w-[90%] md:w-[50%] lg:w-[45%] max-w-[650px] flex justify-start items-end z-10 pointer-events-none"
+      class="hidden sm:flex absolute bottom-0 left-0 w-[50%] sm:w-[50%] md:w-[50%] lg:w-[45%] max-w-[550px] justify-start items-end z-0 pointer-events-none opacity-70 sm:opacity-80 md:opacity-90 lg:opacity-100"
       data-aos="fade-right"
     >
       <!-- Lightbulb animation -->
-      <div class="absolute top-[-50px] lg:top-[-80px] right-[25%] animate-bounce">
+      <div class="absolute top-[-20px] sm:top-[-30px] md:top-[-50px] lg:top-[-80px] right-[15%] md:right-[25%] animate-bounce">
         <img src="https://www.figma.com/api/mcp/asset/769fc295-0534-479e-8ba3-b5068e221333" alt="Lightbulb"
-          class="w-[80px] md:w-[135px] h-auto transform -rotate-12 pointer-events-auto" />
+          class="w-[40px] sm:w-[60px] md:w-[100px] lg:w-[135px] h-auto transform -rotate-12 pointer-events-auto" />
       </div>
       <img src="https://www.figma.com/api/mcp/asset/74745e95-c41a-446b-b936-7f81074d9b20" alt="Girl Having Idea"
-        class="w-[95%] lg:w-full h-auto object-contain scale-x-[-1] drop-shadow-2xl pointer-events-auto" style="display: block; margin-bottom: 0px; transform-origin: bottom center;" />
+        class="w-full max-h-[250px] sm:max-h-[300px] md:max-h-[400px] lg:max-h-none h-auto object-contain scale-x-[-1] drop-shadow-2xl pointer-events-auto" style="display: block; margin-bottom: 0px; transform-origin: bottom center;" />
     </div>
   </section>
 
   <!-- DAFTAR KAMPUS SECTION (CAROUSEL) -->
-  <section id="kampus" class="py-24 bg-gradient-kampus relative overflow-hidden">
+  <section id="kampus" class="py-12 sm:py-16 md:py-24 bg-gradient-kampus relative overflow-hidden">
     <!-- Clean Vector Wave Texture for Kampus -->
     <div class="absolute inset-0 pointer-events-none z-0">
       <svg viewBox="0 0 1440 600" fill="none" class="absolute w-full h-full top-0 left-0" preserveAspectRatio="none">
@@ -367,15 +357,15 @@
     </div>
 
     <div class="container mx-auto px-6 max-w-[1200px] relative z-10 flex flex-col">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
-        <h2 class="text-4xl md:text-5xl font-black text-white drop-shadow-md" data-aos="fade-right">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 sm:mb-12 md:mb-16 gap-4 sm:gap-6">
+        <h2 class="text-2xl sm:text-3xl md:text-5xl font-black text-white drop-shadow-md" data-aos="fade-right">
           Rekomendasi <br />
           Kampus Favorit
         </h2>
 
         <!-- FIX: changed link to daftar-kampus.html -->
         <a href="daftar-kampus.html"
-          class="font-normal text-[24px] text-white hover:text-light-mint transition-colors drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] flex items-center group"
+          class="font-normal text-[16px] sm:text-[20px] md:text-[24px] text-white hover:text-light-mint transition-colors drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] flex items-center group"
           data-aos="fade-left">
           Eksplorasi Lagi
           <span class="ml-2 group-hover:translate-x-2 transition-transform">&rarr;</span>
@@ -388,14 +378,14 @@
           <!-- Slide 1 -->
           <div class="swiper-slide !w-auto">
             <div
-              class="bg-[#d9d9d9] w-[300px] md:w-[411px] h-[390px] rounded-[16px] relative p-[15px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] transform transition-transform hover:-translate-y-2 group flex flex-col justify-between">
+              class="bg-[#d9d9d9] w-[260px] sm:w-[300px] md:w-[350px] lg:w-[340px] h-[340px] sm:h-[360px] md:h-[390px] rounded-[16px] relative p-[12px] sm:p-[15px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] transform transition-transform hover:-translate-y-2 group flex flex-col justify-between mx-auto">
               <div class="w-full h-[60%] rounded-[8px] overflow-hidden relative">
                 <img src="https://www.figma.com/api/mcp/asset/94abba19-fb26-4353-9543-4c7768aaca20"
                   alt="Universitas Indonesia"
                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
               <div class="w-full h-[40%] flex flex-col justify-end pb-2">
-                <h3 class="font-semibold text-[24px] text-[#00a957] whitespace-nowrap mb-4 truncate text-left">
+                <h3 class="font-semibold text-[18px] sm:text-[20px] md:text-[24px] text-[#00a957] whitespace-nowrap mb-2 sm:mb-4 truncate text-left">
                   Universitas Indonesia
                 </h3>
                 <a href="#" class="flex items-center gap-1 group/link w-max">
@@ -414,14 +404,14 @@
           <!-- Slide 2 -->
           <div class="swiper-slide !w-auto">
             <div
-              class="bg-[#d9d9d9] w-[300px] md:w-[411px] h-[390px] rounded-[16px] relative p-[15px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] transform transition-transform hover:-translate-y-2 group flex flex-col justify-between">
+              class="bg-[#d9d9d9] w-[260px] sm:w-[300px] md:w-[350px] lg:w-[340px] h-[340px] sm:h-[360px] md:h-[390px] rounded-[16px] relative p-[12px] sm:p-[15px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] transform transition-transform hover:-translate-y-2 group flex flex-col justify-between mx-auto">
               <div class="w-full h-[60%] rounded-[8px] overflow-hidden relative">
                 <img src="https://www.figma.com/api/mcp/asset/94abba19-fb26-4353-9543-4c7768aaca20"
                   alt="Institut Teknologi Bandung"
                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
               <div class="w-full h-[40%] flex flex-col justify-end pb-2">
-                <h3 class="font-semibold text-[24px] text-[#00a957] whitespace-nowrap mb-4 truncate text-left">
+                <h3 class="font-semibold text-[18px] sm:text-[20px] md:text-[24px] text-[#00a957] whitespace-nowrap mb-2 sm:mb-4 truncate text-left">
                   Institut Teknologi Bandung
                 </h3>
                 <a href="#" class="flex items-center gap-1 group/link w-max">
@@ -440,14 +430,14 @@
           <!-- Slide 3 -->
           <div class="swiper-slide !w-auto">
             <div
-              class="bg-[#d9d9d9] w-[300px] md:w-[411px] h-[390px] rounded-[16px] relative p-[15px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] transform transition-transform hover:-translate-y-2 group flex flex-col justify-between">
+              class="bg-[#d9d9d9] w-[260px] sm:w-[300px] md:w-[350px] lg:w-[340px] h-[340px] sm:h-[360px] md:h-[390px] rounded-[16px] relative p-[12px] sm:p-[15px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] transform transition-transform hover:-translate-y-2 group flex flex-col justify-between mx-auto">
               <div class="w-full h-[60%] rounded-[8px] overflow-hidden relative">
                 <img src="https://www.figma.com/api/mcp/asset/94abba19-fb26-4353-9543-4c7768aaca20"
                   alt="Universitas Gadjah Mada"
                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
               <div class="w-full h-[40%] flex flex-col justify-end pb-2">
-                <h3 class="font-semibold text-[24px] text-[#00a957] whitespace-nowrap mb-4 truncate text-left">
+                <h3 class="font-semibold text-[18px] sm:text-[20px] md:text-[24px] text-[#00a957] whitespace-nowrap mb-2 sm:mb-4 truncate text-left">
                   Universitas Gadjah Mada
                 </h3>
                 <a href="#" class="flex items-center gap-1 group/link w-max">
@@ -466,14 +456,14 @@
           <!-- Slide 4 -->
           <div class="swiper-slide !w-auto">
             <div
-              class="bg-[#d9d9d9] w-[300px] md:w-[411px] h-[390px] rounded-[16px] relative p-[15px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] transform transition-transform hover:-translate-y-2 group flex flex-col justify-between">
+              class="bg-[#d9d9d9] w-[260px] sm:w-[300px] md:w-[350px] lg:w-[340px] h-[340px] sm:h-[360px] md:h-[390px] rounded-[16px] relative p-[12px] sm:p-[15px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] transform transition-transform hover:-translate-y-2 group flex flex-col justify-between mx-auto">
               <div class="w-full h-[60%] rounded-[8px] overflow-hidden relative">
                 <img src="https://www.figma.com/api/mcp/asset/94abba19-fb26-4353-9543-4c7768aaca20"
                   alt="Universitas Airlangga"
                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
               <div class="w-full h-[40%] flex flex-col justify-end pb-2">
-                <h3 class="font-semibold text-[24px] text-[#00a957] whitespace-nowrap mb-4 truncate text-left">
+                <h3 class="font-semibold text-[18px] sm:text-[20px] md:text-[24px] text-[#00a957] whitespace-nowrap mb-2 sm:mb-4 truncate text-left">
                   Universitas Airlangga
                 </h3>
                 <a href="#" class="flex items-center gap-1 group/link w-max">
@@ -497,7 +487,7 @@
   </section>
 
   <!-- TENTANG KAMI SECTION -->
-  <section id="tentang" class="py-24 bg-white relative overflow-hidden z-10">
+  <section id="tentang" class="py-12 sm:py-16 md:py-24 bg-white relative overflow-hidden z-10">
     <!-- Continuing SVG Wave on Left side -->
     <div class="absolute left-0 top-0 w-full sm:w-[80%] lg:w-[60%] h-full pointer-events-none z-0">
       <svg viewBox="0 0 800 600" fill="none" class="absolute top-0 left-[-150px] w-full h-[120%]" preserveAspectRatio="none">
@@ -523,24 +513,24 @@
       </div>
     </div>
 
-    <div class="container mx-auto px-6 lg:px-12 relative z-10 flex text-left relative min-h-[500px] items-center">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10 flex text-left relative min-h-[350px] sm:min-h-[400px] md:min-h-[500px] items-center">
       
 
       <!-- Main Content Card matching the absolute styling logic but responsive -->
       <div
-        class="w-full lg:w-[60%] xl:w-[834px] bg-white border border-black rounded-[15px] p-6 sm:p-10 md:p-[20px] shadow-[7px_6px_4px_0px_rgba(0,0,0,0.25)] relative z-10"
+        class="w-full lg:w-[60%] xl:w-[834px] bg-white border border-black rounded-[15px] p-4 sm:p-6 lg:p-[40px] shadow-[4px_4px_4px_0px_rgba(0,0,0,0.25)] sm:shadow-[7px_6px_4px_0px_rgba(0,0,0,0.25)] relative z-10"
         data-aos="zoom-in" data-aos-duration="1000">
 
         <div
         class="hidden lg:block absolute top-[10px] right-[50px] text-[120px] font-serif text-main-green/100 leading-none pointer-events-none z-0 select-none font-bold">
         "
       </div>
-        <h2 class="text-[40px] font-black text-dark-green mb-6 flex items-center gap-4">
+        <h2 class="text-[24px] sm:text-[28px] md:text-[40px] font-black text-dark-green mb-3 sm:mb-4 md:mb-6 flex items-center gap-4">
           Tentang Kami
         </h2>
 
-        <div class="text-[20px] md:text-[24px] font-light text-dark-green leading-relaxed">
-          <span class="font-bold text-[24px] md:text-[28px]">MinatIn </span>
+        <div class="text-[14px] sm:text-[16px] md:text-[20px] lg:text-[24px] font-light text-dark-green leading-relaxed text-justify">
+          <span class="font-bold text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px]">MinatIn </span>
           adalah sebuah platform digital yang dibangun oleh
           <span class="italic font-bold">6xKu</span>
           pada tahun 2026.
@@ -643,21 +633,34 @@
         el: ".swiper-pagination",
         clickable: true,
       },
+      centeredSlides: false,
       breakpoints: {
         // when window width is >= 320px
         320: {
           slidesPerView: 1,
+          spaceBetween: 16,
+          centeredSlides: true,
+        },
+        // when window width is >= 480px
+        480: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          centeredSlides: true,
+        },
+        // when window width is >= 640px
+        640: {
+          slidesPerView: 2,
           spaceBetween: 20,
         },
         // when window width is >= 768px
         768: {
           slidesPerView: 2,
-          spaceBetween: 30,
+          spaceBetween: 24,
         },
         // when window width is >= 1024px
         1024: {
           slidesPerView: 3,
-          spaceBetween: 40,
+          spaceBetween: 30,
         },
       },
     });
