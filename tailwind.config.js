@@ -8,10 +8,6 @@ export default {
     extend: {
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
-        'outfit': ['Outfit', 'sans-serif'],
-        'momo-trust-sans': ['Momo Trust Sans', 'sans-serif'],
-        'momo-trust-display': ['Momo Trust Display', 'sans-serif'],
-        'volkhov': ['Volkhov', 'serif'],
       },
       colors: {
         'main-green': '#00793e',
@@ -19,9 +15,10 @@ export default {
         'light-green': '#01ae5a',
         'light-mint': '#b7ffdc',
         'dark-bg': '#1d1d1d',
-        'gradient-green-1': 'rgb(1, 174, 90)',
-        'gradient-green-2': 'rgb(1, 172, 89)',
-        'gradient-green-3': 'rgb(0, 72, 37)',
+      },
+      backgroundImage: {
+        'gradient-hero': "linear-gradient(63.98deg, rgb(1, 174, 90) 53.17%, rgb(1, 172, 89) 72.56%, rgb(0, 72, 37) 102.3%)",
+        'gradient-kampus': "linear-gradient(-41.18deg, rgb(14, 184, 102) 54.54%, rgb(0, 105, 54) 100%)",
       },
     },
   },

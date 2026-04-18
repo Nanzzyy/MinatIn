@@ -1,19 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Outfit:wght@300;400;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  background-color: white;
+  color: #1f2937;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Swiper custom pagination styles */
+.swiper-pagination-bullet-active {
+  background: #b7ffdc !important;
+}
+
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Sticky Navbar Styles */
+.nav-scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+
+.nav-scrolled #logo-text {
+  color: #000000 !important;
+}
+
+.nav-scrolled .nav-link {
+  color: #004825 !important;
+}
+
+.nav-scrolled .nav-link-indicator {
+  background-color: #01ae5a !important;
+}
+
+.nav-scrolled .nav-icon-bg {
+  background-color: rgba(0, 72, 37, 0.08) !important;
+}
+
+
+.nav-scrolled .hamburger-line {
+  background-color: #004825 !important;
+}
+
+/* Active Scroll Navigation Indicator */
+.nav-item.active .nav-link {
+  font-weight: 600;
+}
+
+.nav-item.active .nav-link-indicator {
+  width: 55px !important;
+}
+
+/* Hide scrollbar but allow scrolling */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
