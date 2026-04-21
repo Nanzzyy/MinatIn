@@ -110,9 +110,9 @@ const Home = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-dark-green hover:bg-main-green text-white px-8 py-3 rounded-2xl font-bold text-xl transition-all shadow-xl hover:-translate-y-1">
+              <Link to="/survei" className="bg-dark-green hover:bg-main-green text-white px-8 py-3 rounded-2xl font-bold text-xl transition-all shadow-xl hover:-translate-y-1">
                 Masuk Survei &rarr;
-              </button>
+              </Link>
               <Link to="/daftar-kampus" className="border-[5px] border-light-green text-light-green hover:bg-light-green hover:text-white px-8 py-3 rounded-2xl font-bold text-xl transition-all shadow-xl text-center hover:-translate-y-1">
                 Jelajahi Kampus &rarr;
               </Link>

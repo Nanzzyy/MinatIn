@@ -9,7 +9,7 @@ const DaftarKampus = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    // Initialize AOS
+    // Initialize AOS for static elements
     if (window.AOS) {
       window.AOS.init({ duration: 800, once: true, offset: 100 });
       window.AOS.refresh();
@@ -20,6 +20,7 @@ const DaftarKampus = () => {
         const { data, error } = await supabase.from('kampus').select('*').order('nama_kampus', { ascending: true });
         if (error) throw error;
         setCampuses(data || []);
+        // Set filtered data immediately so it's ready when loading becomes false
         setFilteredCampuses(data || []);
       } catch (e) {
         console.error("Error fetching campuses:", e);
@@ -34,12 +35,17 @@ const DaftarKampus = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Real-time filtering logic and AOS refresh
   // Real-time filtering logic
   useEffect(() => {
-    const results = campuses.filter(campus =>
-      campus.nama_kampus.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (campus.lokasi && campus.lokasi.toLowerCase().includes(searchTerm.toLowerCase()))
-    );
+    const results = campuses.filter(campus => {
+      const name = campus.nama_kampus ? campus.nama_kampus.toLowerCase() : '';
+      const location = campus.lokasi ? campus.lokasi.toLowerCase() : '';
+      const search = searchTerm.toLowerCase();
+      
+      return name.includes(search) || location.includes(search);
+    });
+    
     setFilteredCampuses(results);
   }, [searchTerm, campuses]);
 
@@ -91,11 +97,17 @@ const DaftarKampus = () => {
             {/* Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
               {filteredCampuses.map((campus, index) => (
-                <div 
-                  key={campus.id_kampus}
+                <motion.div 
+                  key={campus.id_kampus || index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: (index % 3) * 0.1,
+                    ease: [0.22, 1, 0.36, 1] 
+                  }}
+                  viewport={{ once: true }}
                   className="campus-card bg-[#1e1e2a] w-full rounded-[24px] border border-white/[0.06] shadow-xl transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_20px_60px_rgba(1,174,90,0.2)] hover:border-[#01ae5a]/30 group overflow-hidden" 
-                  data-aos="fade-up" 
-                  data-aos-delay={100 + (index % 3) * 50}
                 >
                     <div className="w-full h-[220px] overflow-hidden relative">
                         <img 
@@ -137,7 +149,7 @@ const DaftarKampus = () => {
                             </svg>
                         </a>
                     </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 

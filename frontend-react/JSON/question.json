@@ -1,0 +1,792 @@
+[
+    {
+        "id": "q1",
+        "pertanyaan": "Apa yang paling suka kamu lakukan di akhir pekan?",
+        "opsi": {
+            "A": {
+                "teks": "Mengulik gadget, OS, atau software baru",
+                "poin": {
+                    "Tek": 5,
+                    "Bis": 1
+                }
+            },
+            "B": {
+                "teks": "Menggambar, mendesain, atau fotografi",
+                "poin": {
+                    "Sen": 5,
+                    "Sos": 1
+                }
+            },
+            "C": {
+                "teks": "Nongkrong dan diskusi bareng teman",
+                "poin": {
+                    "Sos": 5,
+                    "Bis": 2
+                }
+            },
+            "D": {
+                "teks": "Eksperimen meracik minuman/makanan baru",
+                "poin": {
+                    "Jas": 5,
+                    "Sen": 2
+                }
+            }
+        }
+    },
+    {
+        "id": "q2",
+        "pertanyaan": "Saat ada tugas kelompok, kamu biasanya memilih peran apa?",
+        "opsi": {
+            "A": {
+                "teks": "Mengerjakan bagian teknis, riset, atau hitungan",
+                "poin": {
+                    "Tek": 5,
+                    "Bis": 2
+                }
+            },
+            "B": {
+                "teks": "Membuat desain presentasi agar menarik",
+                "poin": {
+                    "Sen": 5,
+                    "Tek": 1
+                }
+            },
+            "C": {
+                "teks": "Menjadi presenter yang maju ke depan",
+                "poin": {
+                    "Sos": 5,
+                    "Bis": 2
+                }
+            },
+            "D": {
+                "teks": "Mengatur jadwal dan konsumsi kelompok",
+                "poin": {
+                    "Jas": 5,
+                    "Bis": 3
+                }
+            }
+        }
+    },
+    {
+        "id": "q3",
+        "pertanyaan": "Tontonan favoritmu di internet biasanya membahas tentang...",
+        "opsi": {
+            "A": {
+                "teks": "Tutorial coding, bedah teknologi, atau sains",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Animasi, film pendek, atau proses kreatif",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Podcast, talkshow, atau isu terkini",
+                "poin": {
+                    "Sos": 5,
+                    "Bis": 2
+                }
+            },
+            "D": {
+                "teks": "Vlog jalan-jalan, review tempat, atau kuliner",
+                "poin": {
+                    "Jas": 5,
+                    "Sos": 2
+                }
+            }
+        }
+    },
+    {
+        "id": "q4",
+        "pertanyaan": "Saat mendengarkan musik, hal yang paling sering kamu perhatikan adalah...",
+        "opsi": {
+            "A": {
+                "teks": "Kualitas audio, detail instrumen, atau spesifikasi hardware-nya",
+                "poin": {
+                    "Tek": 5,
+                    "Sen": 2
+                }
+            },
+            "B": {
+                "teks": "Visual dari cover album atau video klipnya",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Makna lirik dan cara penyampaiannya",
+                "poin": {
+                    "Sos": 5,
+                    "Sen": 2
+                }
+            },
+            "D": {
+                "teks": "Vibe keseluruhan yang pas buat bersantai",
+                "poin": {
+                    "Jas": 3,
+                    "Sos": 2
+                }
+            }
+        }
+    },
+    {
+        "id": "q5",
+        "pertanyaan": "Destinasi liburan seperti apa yang paling menarik buatmu?",
+        "opsi": {
+            "A": {
+                "teks": "Diam di kamar ngulik project atau nge-game",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Museum, galeri seni, atau pameran budaya",
+                "poin": {
+                    "Sen": 5,
+                    "Sos": 2
+                }
+            },
+            "C": {
+                "teks": "Pusat kota yang ramai dan banyak event",
+                "poin": {
+                    "Sos": 5,
+                    "Bis": 2
+                }
+            },
+            "D": {
+                "teks": "Ke alam terbuka seperti hutan pinus atau pegunungan",
+                "poin": {
+                    "Jas": 5,
+                    "Sen": 2
+                }
+            }
+        }
+    },
+    {
+        "id": "q6",
+        "pertanyaan": "Kalau masuk ke sebuah kafe, hal pertama yang kamu perhatikan adalah...",
+        "opsi": {
+            "A": {
+                "teks": "Koneksi WiFi dan kelengkapan colokan listrik",
+                "poin": {
+                    "Tek": 5,
+                    "Bis": 2
+                }
+            },
+            "B": {
+                "teks": "Estetika interior dan tata cahayanya",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Suasana ramai tidaknya untuk ngobrol",
+                "poin": {
+                    "Sos": 5
+                }
+            },
+            "D": {
+                "teks": "Metode seduh kopi dan variasi menunya",
+                "poin": {
+                    "Jas": 5,
+                    "Bis": 1
+                }
+            }
+        }
+    },
+    {
+        "id": "q7",
+        "pertanyaan": "Jika punya sisa uang saku lumayan banyak, kamu akan pakai untuk...",
+        "opsi": {
+            "A": {
+                "teks": "Upgrade komponen komputer atau beli gadget",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Beli alat gambar, software desain, atau kamera",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Ditabung untuk modal jualan/usaha kecil",
+                "poin": {
+                    "Bis": 5,
+                    "Sos": 2
+                }
+            },
+            "D": {
+                "teks": "Nraktir teman makan atau jalan-jalan",
+                "poin": {
+                    "Jas": 4,
+                    "Sos": 5
+                }
+            }
+        }
+    },
+    {
+        "id": "q8",
+        "pertanyaan": "Cara paling efektif buatmu saat belajar hal baru adalah...",
+        "opsi": {
+            "A": {
+                "teks": "Praktek langsung (trial and error) sendiri",
+                "poin": {
+                    "Tek": 5,
+                    "Sen": 2
+                }
+            },
+            "B": {
+                "teks": "Melihat diagram, mind map, atau visualisasi",
+                "poin": {
+                    "Sen": 5,
+                    "Tek": 2
+                }
+            },
+            "C": {
+                "teks": "Diskusi bareng teman atau tutor sebaya",
+                "poin": {
+                    "Sos": 5,
+                    "Bis": 2
+                }
+            },
+            "D": {
+                "teks": "Membaca teori pelan-pelan lalu mempraktekkannya",
+                "poin": {
+                    "Bis": 4,
+                    "Tek": 2
+                }
+            }
+        }
+    },
+    {
+        "id": "q9",
+        "pertanyaan": "Saat melihat sebuah aplikasi atau website yang bagus, pikiran pertamamu adalah...",
+        "opsi": {
+            "A": {
+                "teks": "'Ini database dan backend-nya pakai apa ya?'",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "'Kombinasi warna dan animasinya mulus banget.'",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "'Aplikasi ini pasti laku keras di pasaran.'",
+                "poin": {
+                    "Bis": 5
+                }
+            },
+            "D": {
+                "teks": "'UI-nya gampang banget dipakai sama orang awam.'",
+                "poin": {
+                    "Jas": 4,
+                    "Sos": 4
+                }
+            }
+        }
+    },
+    {
+        "id": "q10",
+        "pertanyaan": "Bagaimana caramu menghadapi masalah yang rumit?",
+        "opsi": {
+            "A": {
+                "teks": "Memecahnya jadi masalah-masalah kecil secara sistematis",
+                "poin": {
+                    "Tek": 5,
+                    "Bis": 3
+                }
+            },
+            "B": {
+                "teks": "Mencari inspirasi dari luar untuk cari solusi unik",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Minta pendapat banyak orang dulu",
+                "poin": {
+                    "Sos": 5
+                }
+            },
+            "D": {
+                "teks": "Tetap tenang dan mencari jalan paling praktis",
+                "poin": {
+                    "Jas": 3,
+                    "Bis": 4
+                }
+            }
+        }
+    },
+    {
+        "id": "q11",
+        "pertanyaan": "Buku atau artikel seperti apa yang bikin kamu betah baca?",
+        "opsi": {
+            "A": {
+                "teks": "Fiksi ilmiah atau buku panduan teknis",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Buku ilustrasi, komik, atau arsitektur",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Biografi tokoh sukses atau buku psikologi",
+                "poin": {
+                    "Sos": 4,
+                    "Bis": 4
+                }
+            },
+            "D": {
+                "teks": "Majalah travel, kuliner, atau gaya hidup",
+                "poin": {
+                    "Jas": 5
+                }
+            }
+        }
+    },
+    {
+        "id": "q12",
+        "pertanyaan": "Kalau diberi kebebasan membuat proyek akhir, kamu akan bikin...",
+        "opsi": {
+            "A": {
+                "teks": "Sistem otomasi atau program pendeteksi sesuatu",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Film dokumenter, game 2D/3D, atau pameran karya",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Kampanye sosial untuk membantu warga sekitar",
+                "poin": {
+                    "Sos": 5
+                }
+            },
+            "D": {
+                "teks": "Event bazar makanan atau festival budaya",
+                "poin": {
+                    "Jas": 5,
+                    "Bis": 3
+                }
+            }
+        }
+    },
+    {
+        "id": "q13",
+        "pertanyaan": "Saat main game, bagian mana yang paling kamu nikmati?",
+        "opsi": {
+            "A": {
+                "teks": "Ngatur strategi, modding, atau min-maxing status",
+                "poin": {
+                    "Tek": 5,
+                    "Bis": 2
+                }
+            },
+            "B": {
+                "teks": "Eksplorasi map yang indah and kustomisasi karakter",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Main mode multiplayer and ngobrol di voice chat",
+                "poin": {
+                    "Sos": 5
+                }
+            },
+            "D": {
+                "teks": "Menjalankan quest santai seperti bertani/memasak",
+                "poin": {
+                    "Jas": 4,
+                    "Sen": 2
+                }
+            }
+        }
+    },
+    {
+        "id": "q14",
+        "pertanyaan": "Hal apa yang paling cepat bikin kamu emosi/bete?",
+        "opsi": {
+            "A": {
+                "teks": "Sistem yang lemot, error, atau tidak logis",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Dibatasi dalam berekspresi atau diberi aturan kaku",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Melihat ketidakadilan atau orang yang egois",
+                "poin": {
+                    "Sos": 5
+                }
+            },
+            "D": {
+                "teks": "Rencana yang berantakan karena hal sepele",
+                "poin": {
+                    "Bis": 5,
+                    "Jas": 3
+                }
+            }
+        }
+    },
+    {
+        "id": "q15",
+        "pertanyaan": "Jika kamu menjadi relawan, tugas apa yang kamu pilih?",
+        "opsi": {
+            "A": {
+                "teks": "Mengurus database peserta atau website acara",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Membuat spanduk, poster, dan dekorasi",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Humas, MC, atau bagian informasi",
+                "poin": {
+                    "Sos": 5
+                }
+            },
+            "D": {
+                "teks": "Mengatur logistik, rute, atau dapur umum",
+                "poin": {
+                    "Jas": 5,
+                    "Bis": 3
+                }
+            }
+        }
+    },
+    {
+        "id": "q16",
+        "pertanyaan": "Bagaimana gaya pakaianmu sehari-hari?",
+        "opsi": {
+            "A": {
+                "teks": "Yang penting fungsional, nyaman, dan praktis",
+                "poin": {
+                    "Tek": 4,
+                    "Bis": 2
+                }
+            },
+            "B": {
+                "teks": "Unik, nyentrik, atau punya ciri khas sendiri",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Mengikuti tren terbaru atau kasual rapi",
+                "poin": {
+                    "Sos": 4
+                }
+            },
+            "D": {
+                "teks": "Rapi, bersih, dan pantas untuk segala situasi",
+                "poin": {
+                    "Bis": 4,
+                    "Jas": 4
+                }
+            }
+        }
+    },
+    {
+        "id": "q17",
+        "pertanyaan": "Ketika melihat barang bekas, apa yang terpikir olehmu?",
+        "opsi": {
+            "A": {
+                "teks": "Bisa dibongkar buat ambil sparepart-nya",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Bisa didaur ulang jadi barang estetik (DIY)",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Bisa diperbaiki lalu dijual lagi",
+                "poin": {
+                    "Bis": 5
+                }
+            },
+            "D": {
+                "teks": "Dibersihkan lalu disumbangkan ke yang butuh",
+                "poin": {
+                    "Sos": 5
+                }
+            }
+        }
+    },
+    {
+        "id": "q18",
+        "pertanyaan": "Pelajaran selain jurusan utama yang paling bisa kamu ikuti adalah...",
+        "opsi": {
+            "A": {
+                "teks": "Matematika / Fisika",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Seni Budaya / Sastra",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "PKn / Sejarah / Bahasa Asing",
+                "poin": {
+                    "Sos": 5
+                }
+            },
+            "D": {
+                "teks": "Kewirausahaan (PKK)",
+                "poin": {
+                    "Bis": 5,
+                    "Jas": 3
+                }
+            }
+        }
+    },
+    {
+        "id": "q19",
+        "pertanyaan": "Saat mengerjakan sesuatu yang butuh fokus, mejamu biasanya...",
+        "opsi": {
+            "A": {
+                "teks": "Penuh kabel dan alat, tapi aku tahu letak semuanya",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Berantakan dengan kertas/coretan ide di mana-mana",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Bersih, rapi, dan seminimalis mungkin",
+                "poin": {
+                    "Bis": 5,
+                    "Jas": 3
+                }
+            },
+            "D": {
+                "teks": "Dikelilingi cemilan dan minuman biar nggak suntuk",
+                "poin": {
+                    "Jas": 4,
+                    "Sos": 2
+                }
+            }
+        }
+    },
+    {
+        "id": "q20",
+        "pertanyaan": "Apa kelemahan terbesarmu saat bekerja?",
+        "opsi": {
+            "A": {
+                "teks": "Terlalu perfeksionis pada hal-hal kecil (detail teknis)",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Sering keasyikan kerja sampai lupa waktu/deadline",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Susah bilang 'tidak' kalau dimintai tolong",
+                "poin": {
+                    "Sos": 5
+                }
+            },
+            "D": {
+                "teks": "Terlalu bossy atau ingin mengatur semuanya",
+                "poin": {
+                    "Bis": 5
+                }
+            }
+        }
+    },
+    {
+        "id": "q21",
+        "pertanyaan": "Jika diberi waktu untuk mempelajari bahasa baru, kamu akan fokus pada...",
+        "opsi": {
+            "A": {
+                "teks": "Struktur grammar dan aturan sintaksnya",
+                "poin": {
+                    "Tek": 4,
+                    "Bis": 2
+                }
+            },
+            "B": {
+                "teks": "Bentuk tulisan aslinya (seperti Hiragana/Katakana)",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Cara pelafalan agar bisa ngobrol dengan native",
+                "poin": {
+                    "Sos": 5
+                }
+            },
+            "D": {
+                "teks": "Kata-kata umum untuk bertahan saat traveling",
+                "poin": {
+                    "Jas": 5
+                }
+            }
+        }
+    },
+    {
+        "id": "q22",
+        "pertanyaan": "Apa pendapatmu tentang rutinitas yang berulang setiap hari?",
+        "opsi": {
+            "A": {
+                "teks": "Akan kubuat skrip/program biar jalan otomatis",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Sangat membosankan, aku butuh hal baru",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Tidak masalah selama dikerjakan bareng orang seru",
+                "poin": {
+                    "Sos": 5
+                }
+            },
+            "D": {
+                "teks": "Bagus, rutinitas itu menjaga kestabilan dan kedisiplinan",
+                "poin": {
+                    "Bis": 5
+                }
+            }
+        }
+    },
+    {
+        "id": "q23",
+        "pertanyaan": "Sifat apa yang paling kamu hargai dari orang lain?",
+        "opsi": {
+            "A": {
+                "teks": "Pintar, logis, dan objektif",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Kreatif, open-minded, dan menghargai seni",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Empati tinggi dan pendengar yang baik",
+                "poin": {
+                    "Sos": 5
+                }
+            },
+            "D": {
+                "teks": "Sopan, tepat waktu, dan bisa diandalkan",
+                "poin": {
+                    "Bis": 4,
+                    "Jas": 4
+                }
+            }
+        }
+    },
+    {
+        "id": "q24",
+        "pertanyaan": "Menurutmu, kesuksesan itu diukur dari...",
+        "opsi": {
+            "A": {
+                "teks": "Bisa menciptakan sistem/produk yang dipakai jutaan orang",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Menghasilkan mahakarya yang diakui banyak orang",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "Memiliki koneksi yang luas dan berguna bagi masyarakat",
+                "poin": {
+                    "Sos": 5
+                }
+            },
+            "D": {
+                "teks": "Mencapai target finansial dan mandiri secara materi",
+                "poin": {
+                    "Bis": 5
+                }
+            }
+        }
+    },
+    {
+        "id": "q25",
+        "pertanyaan": "Kalau kamu mendirikan startup/perusahaan, apa posisimu?",
+        "opsi": {
+            "A": {
+                "teks": "CTO (Chief Technology Officer) - Urusan produk & sistem",
+                "poin": {
+                    "Tek": 5
+                }
+            },
+            "B": {
+                "teks": "Art Director / CCO - Urusan desain & branding",
+                "poin": {
+                    "Sen": 5
+                }
+            },
+            "C": {
+                "teks": "CMO / PR - Urusan marketing & komunikasi publik",
+                "poin": {
+                    "Sos": 5
+                }
+            },
+            "D": {
+                "teks": "CEO (Chief Executive Officer) - Urusan strategi bisnis",
+                "poin": {
+                    "Bis": 5
+                }
+            }
+        }
+    }
+]

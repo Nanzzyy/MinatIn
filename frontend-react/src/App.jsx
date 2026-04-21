@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import DaftarKampus from './pages/DaftarKampus';
+import Survei from './pages/Survei';
 
 const App = () => {
   return (
@@ -14,7 +15,9 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/daftar-kampus" element={<DaftarKampus />} />
+            <Route path="/survei" element={<Survei />} />
           </Routes>
+
         </div>
         <Footer />
       </div>
