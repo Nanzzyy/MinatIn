@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/supabaseClient';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -11,6 +11,15 @@ import 'swiper/css/pagination';
 const Home = () => {
   const [campuses, setCampuses] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // Popup state
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({ nama: '', kelas: '', jurusan: '' });
+  const navigate = useNavigate();
+
+  const handleStartSurvey = () => {
+    navigate('/survei', { state: formData });
+  };
 
   // Gradients
   const heroGradient = "linear-gradient(63.98deg, rgb(1, 174, 90) 53.17%, rgb(1, 172, 89) 72.56%, rgb(0, 72, 37) 102.3%)";
@@ -60,7 +69,7 @@ const Home = () => {
               </span>
             </h1>
             <div className="flex flex-col sm:flex-row gap-6">
-              <button className="bg-[#00793e] text-white px-10 py-4 rounded-full font-bold text-2xl border-2 border-[#00793e] hover:bg-[#004825] transition-all shadow-xl hover:scale-105">
+              <button onClick={() => setShowModal(true)} className="bg-[#00793e] text-white px-10 py-4 rounded-full font-bold text-2xl border-2 border-[#00793e] hover:bg-[#004825] transition-all shadow-xl hover:scale-105">
                 Ikut Survei &rarr;
               </button>
               <Link to="/daftar-kampus" className="inline-block bg-transparent text-white px-10 py-4 rounded-full font-bold text-2xl border-2 border-white hover:bg-white/10 transition-all text-center shadow-xl hover:scale-105">
@@ -110,9 +119,9 @@ const Home = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/survei" className="bg-dark-green hover:bg-main-green text-white px-8 py-3 rounded-2xl font-bold text-xl transition-all shadow-xl hover:-translate-y-1">
+              <button onClick={() => setShowModal(true)} className="bg-dark-green hover:bg-main-green text-white px-8 py-3 rounded-2xl font-bold text-xl transition-all shadow-xl hover:-translate-y-1">
                 Masuk Survei &rarr;
-              </Link>
+              </button>
               <Link to="/daftar-kampus" className="border-[5px] border-light-green text-light-green hover:bg-light-green hover:text-white px-8 py-3 rounded-2xl font-bold text-xl transition-all shadow-xl text-center hover:-translate-y-1">
                 Jelajahi Kampus &rarr;
               </Link>
@@ -237,6 +246,78 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* POPUP MODAL */}
+      {showModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4 font-['Poppins']">
+          <div className="bg-[#cccccc] w-full max-w-[420px] relative border-[4px] border-[#0ea5e9]">
+            
+            {/* Field Nama */}
+            <div className="px-6 pt-6 pb-4">
+               <label className="text-[#004825] font-medium text-[16px] mb-6 block">Nama <span className="italic">(Opsional)</span> :</label>
+               <input 
+                 type="text" 
+                 value={formData.nama}
+                 onChange={(e) => setFormData({...formData, nama: e.target.value})}
+                 className="w-full bg-transparent border-b-[2px] border-[#004825] outline-none text-gray-800 pb-1"
+               />
+            </div>
+
+            {/* Field Kelas (Ditambahkan sesuai permintaan) */}
+            <div className="px-6 pt-4 pb-4 bg-[#c2c2c2]">
+               <label className="text-[#004825] font-medium text-[16px] mb-6 block">Kelas :</label>
+               <input 
+                 type="text" 
+                 value={formData.kelas}
+                 onChange={(e) => setFormData({...formData, kelas: e.target.value})}
+                 className="w-full bg-transparent border-b-[2px] border-[#004825] outline-none text-gray-800 pb-1 italic placeholder-gray-500"
+                 placeholder="Pilih Kelas Kamu"
+               />
+            </div>
+
+            {/* Field Jurusan */}
+            <div className="px-6 pt-4 pb-12">
+               <label className="text-[#004825] font-medium text-[16px] mb-6 block">Jurusan SMK :</label>
+               <div className="relative border-b-[2px] border-[#004825]">
+                 <select 
+                   className="w-full bg-transparent outline-none text-gray-800 pb-1 appearance-none cursor-pointer italic placeholder-gray-500 font-medium"
+                   value={formData.jurusan}
+                   onChange={(e) => setFormData({...formData, jurusan: e.target.value})}
+                 >
+                   <option value="" disabled hidden>Pilih Jurusan Kamu</option>
+                   <option value="RPL">Rekayasa Perangkat Lunak (RPL)</option>
+                   <option value="TKJ">Teknik Komputer Jaringan (TKJ)</option>
+                   <option value="MM">Multimedia / DKV</option>
+                   <option value="AKL">Akuntansi</option>
+                   <option value="OTKP">Perkantoran (OTKP)</option>
+                   <option value="BDP">Pemasaran (BDP)</option>
+                   <option value="IPA/IPS">SMA (IPA/IPS)</option>
+                   <option value="Lainnya">Lainnya</option>
+                 </select>
+                 <div className="absolute right-1 top-0 bottom-0 flex items-center pointer-events-none text-[#004825]">
+                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 9l-7 7-7-7" /></svg>
+                 </div>
+               </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="px-5 pb-5 flex justify-end items-center gap-3">
+              <button 
+                onClick={() => setShowModal(false)}
+                className="w-[35px] h-[35px] bg-[#ff0000] hover:bg-red-700 text-white rounded-full flex items-center justify-center shadow-md transition-all"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>
+              </button>
+              <button 
+                onClick={handleStartSurvey}
+                className="bg-[#004825] hover:bg-[#00361a] text-white px-5 py-2 rounded-[6px] font-bold text-[15px] shadow-md flex items-center gap-1 transition-all"
+              >
+                Masuk Survei &rarr;
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
     </div>
   );
 };

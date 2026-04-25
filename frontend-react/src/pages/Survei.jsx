@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 
 import questionsData from '../../JSON/question.json';
 
 const Survei = () => {
+  const location = useLocation();
+  const userData = location.state || { nama: '', kelas: '', jurusan: '' };
+  
   const [answers, setAnswers] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [result, setResult] = useState(null);
@@ -28,12 +32,19 @@ const Survei = () => {
     setIsSubmitting(true);
 
     try {
+      const payload = {
+        ...answers,
+        nama_siswa: userData.nama || 'Anonim',
+        kelas_siswa: userData.kelas || '-',
+        jurusan_siswa: userData.jurusan || '-'
+      };
+
       const response = await fetch('http://localhost:5000/survei/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(answers)
+        body: JSON.stringify(payload)
       });
 
       if (!response.ok) throw new Error("Gagal terhubung ke server");
