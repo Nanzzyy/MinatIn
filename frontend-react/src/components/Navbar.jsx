@@ -98,14 +98,14 @@ const Navbar = () => {
               alt="Settings" 
             />
           </button>
-          <button className={`p-2 rounded-full transition-all duration-500 hover:scale-110 ${scrolled || !isHome ? 'bg-black/5' : 'bg-white/20'}`}>
+          <a href="/dashboard" className={`p-2 rounded-full transition-all duration-500 hover:scale-110 ${scrolled || !isHome ? 'bg-black/5' : 'bg-white/20'}`}>
             <img 
               src="https://www.figma.com/api/mcp/asset/371e68d0-a9f6-4623-b1ce-e2dbdac54a13" 
               className="w-8 h-8"
               style={{ filter: scrolled || !isHome ? 'brightness(0)' : 'brightness(0) invert(1)', transition: 'filter 0.5s ease' }}
               alt="User" 
             />
-          </button>
+          </a>
         </div>
       </div>
     </nav>

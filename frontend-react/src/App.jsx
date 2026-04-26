@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import DaftarKampus from './pages/DaftarKampus';
 import Survei from './pages/Survei';
+import Dashboard from './pages/Dashboard';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/daftar-kampus" element={<DaftarKampus />} />
             <Route path="/survei" element={<Survei />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
 
         </div>
