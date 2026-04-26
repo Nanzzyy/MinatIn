@@ -36,10 +36,11 @@ CATEGORY_NAMES = {
     'Jas': 'Jasa, Pariwisata & Kesehatan'
 }
 
-def upload(nama_siswa, jurusan_siswa, dominan_id, scores):
+def upload(nama_siswa, kelas_siswa, jurusan_siswa, dominan_id, scores):
     try:
         data = {
             "nama_siswa": nama_siswa,
+            "kelas_siswa": kelas_siswa,
             "jurusan_siswa": jurusan_siswa,
             "hasil_jurusan": CATEGORY_NAMES.get(dominan_id, "Tidak Diketahui"),
             "skor_detail": scores
@@ -73,12 +74,13 @@ def submit():
     dominant_cat = max(scores, key=scores.get)
     max_score = scores[dominant_cat]
 
-    # Ambil nama dan jurusan dari request jika frontend mengirimkannya (default: 'Anonim')
+    # Ambil nama, kelas, dan jurusan dari request jika frontend mengirimkannya (default: 'Anonim' / '-')
     nama_siswa = answers.get('nama_siswa', 'Anonim')
+    kelas_siswa = answers.get('kelas_siswa', '-')
     jurusan_siswa = answers.get('jurusan_siswa', 'Tidak Diketahui')
 
     # Upload data hasil survei ke database
-    upload(nama_siswa, jurusan_siswa, dominant_cat, scores)
+    upload(nama_siswa, kelas_siswa, jurusan_siswa, dominant_cat, scores)
 
     keywords = CATEGORY_KEYWORDS.get(dominant_cat, [])
 

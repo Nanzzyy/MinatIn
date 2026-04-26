@@ -4,6 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { Link, useNavigate } from 'react-router-dom';
 
+// import disable scroll
+import disableScroll from 'disable-scroll';
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -119,7 +122,7 @@ const Home = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => setShowModal(true)} className="bg-dark-green hover:bg-main-green text-white px-8 py-3 rounded-2xl font-bold text-xl transition-all shadow-xl hover:-translate-y-1">
+              <button onClick={() => {setShowModal(true); disableScroll.on()}} className="bg-dark-green hover:bg-main-green text-white px-8 py-3 rounded-2xl font-bold text-xl transition-all shadow-xl hover:-translate-y-1">
                 Masuk Survei &rarr;
               </button>
               <Link to="/daftar-kampus" className="border-[5px] border-light-green text-light-green hover:bg-light-green hover:text-white px-8 py-3 rounded-2xl font-bold text-xl transition-all shadow-xl text-center hover:-translate-y-1">
@@ -248,35 +251,37 @@ const Home = () => {
       </section>
       {/* POPUP MODAL */}
       {showModal && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4 font-['Poppins']">
-          <div className="bg-[#cccccc] w-full max-w-[420px] relative border-[4px] border-[#0ea5e9]">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4 font-['Poppins'] animate-fade-in">
+          <div className="bg-[#f4f4f4] w-full max-w-[620px] rounded-md relative animate-pop-up shadow-2xl">
             
             {/* Field Nama */}
             <div className="px-6 pt-6 pb-4">
-               <label className="text-[#004825] font-medium text-[16px] mb-6 block">Nama <span className="italic">(Opsional)</span> :</label>
+               <label className="text-[#004825] font-bold text-[16px] mb-6 block">Nama :</label>
                <input 
                  type="text" 
                  value={formData.nama}
                  onChange={(e) => setFormData({...formData, nama: e.target.value})}
                  className="w-full bg-transparent border-b-[2px] border-[#004825] outline-none text-gray-800 pb-1"
+                 placeholder='Masukkan nama kamu (Opsional)'
                />
             </div>
 
             {/* Field Kelas (Ditambahkan sesuai permintaan) */}
-            <div className="px-6 pt-4 pb-4 bg-[#c2c2c2]">
-               <label className="text-[#004825] font-medium text-[16px] mb-6 block">Kelas :</label>
+            <div className="px-6 pt-4 pb-4">
+               <label className="text-[#004825] font-bold text-[16px] mb-6 block">Kelas :</label>
                <input 
                  type="text" 
                  value={formData.kelas}
                  onChange={(e) => setFormData({...formData, kelas: e.target.value})}
                  className="w-full bg-transparent border-b-[2px] border-[#004825] outline-none text-gray-800 pb-1 italic placeholder-gray-500"
-                 placeholder="Pilih Kelas Kamu"
+                 placeholder="Contoh: XI RPL 2 / XI IPA 1"
+                 required
                />
             </div>
 
             {/* Field Jurusan */}
             <div className="px-6 pt-4 pb-12">
-               <label className="text-[#004825] font-medium text-[16px] mb-6 block">Jurusan SMK :</label>
+               <label className="text-[#004825] font-bold text-[16px] mb-6 block">Jurusan SMK :</label>
                <div className="relative border-b-[2px] border-[#004825]">
                  <select 
                    className="w-full bg-transparent outline-none text-gray-800 pb-1 appearance-none cursor-pointer italic placeholder-gray-500 font-medium"
@@ -302,13 +307,13 @@ const Home = () => {
             {/* Action Buttons */}
             <div className="px-5 pb-5 flex justify-end items-center gap-3">
               <button 
-                onClick={() => setShowModal(false)}
+                onClick={() => {setShowModal(false); disableScroll.off();}}
                 className="w-[35px] h-[35px] bg-[#ff0000] hover:bg-red-700 text-white rounded-full flex items-center justify-center shadow-md transition-all"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>
               </button>
               <button 
-                onClick={handleStartSurvey}
+                onClick={() => {handleStartSurvey(); disableScroll.off(); window.scrollTo(0,0)}}
                 className="bg-[#004825] hover:bg-[#00361a] text-white px-5 py-2 rounded-[6px] font-bold text-[15px] shadow-md flex items-center gap-1 transition-all"
               >
                 Masuk Survei &rarr;
