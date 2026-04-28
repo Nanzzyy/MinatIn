@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import DaftarKampus from './pages/DaftarKampus';
 import Survei from './pages/Survei';
 import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/daftar-kampus" element={<DaftarKampus />} />
             <Route path="/survei" element={<Survei />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
 
         </div>

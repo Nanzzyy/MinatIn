@@ -1,16 +1,21 @@
 import os
 import json
-from flask import Flask, request, jsonify
+from flask import Flask, request, redirect, url_for, jsonify
+from flask_login import LoginManager, login_user, login_required, UserMixin, current_user, logout_user  
 from flask_cors import CORS
 from supabase import create_client, Client
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True)
+app.secret_key = 'aDprIuo4Ir6Qt5tfGQN84qbTymp7mZDmVp6zCNx44JU'
 
 # Supabase setup
 url: str = 'https://lzeydgdaeywdnrjhydyy.supabase.co'
 key: str = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6ZXlkZ2RhZXl3ZG5yamh5ZHl5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjE4ODY5NCwiZXhwIjoyMDkxNzY0Njk0fQ.k0B-uGhMzazwJtyAcdoS-6genEWtR0UJiEAG7xrmPLw'
 supabase: Client = create_client(url, key)
+
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
 
 # Load questions from JSON
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -36,6 +41,11 @@ CATEGORY_NAMES = {
     'Jas': 'Jasa, Pariwisata & Kesehatan'
 }
 
+class User(UserMixin):
+    def __init__(self, id, username=None):
+        self.id = id
+        self.username = username
+
 def upload(nama_siswa, kelas_siswa, jurusan_siswa, dominan_id, scores):
     try:
         data = {
@@ -50,6 +60,60 @@ def upload(nama_siswa, kelas_siswa, jurusan_siswa, dominan_id, scores):
     except Exception as e:
         print("Error uploading to supabase:", str(e))
         return None
+
+@login_manager.user_loader
+def load_user(user_id):
+    response = supabase.table("user").select("*").eq("id", user_id).execute()
+
+    if response.data:
+        user_data = response.data[0]
+        return User(user_data["id"], user_data.get("username") or user_data.get("email"))
+    return None
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    username = request.form.get("username")
+    password = request.form.get("password")
+
+    if not username or not password:
+        return jsonify({"error": "Username and password are required"}), 400
+
+    response = supabase.table("user").select("*").eq("username", username).execute()
+    user_list = response.data
+
+    if user_list and user_list[0].get("password") == password:
+        user = User(user_list[0]["id"], user_list[0].get("username"))
+        login_user(user)
+        return jsonify({"message": "Login successful", "status": "success"}), 200
+
+    return jsonify({"error": "Invalid username or password"}), 401
+
+
+@app.route("/dashboard")
+@login_required
+def dashboard():
+    return jsonify({"message": "Welcome to dashboard", "status": "success"}), 200
+
+@app.route("/logout", methods=["POST"])
+@login_required
+def logout():
+    logout_user()
+    return jsonify({"message": "Logged out successfully", "status": "success"}), 200
+
+
+@app.route("/check-auth")
+def check_auth():
+    if current_user.is_authenticated:
+        return jsonify({
+            "is_authenticated": True,
+            "user": {
+                "id": current_user.id,
+                "username": current_user.username
+            }
+        }), 200
+    return jsonify({"is_authenticated": False}), 401
+
 
 @app.route('/survei/submit', methods=['POST'])
 def submit():
@@ -109,4 +173,4 @@ def submit():
     })
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5000, host='0.0.0.0')

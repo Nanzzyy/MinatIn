@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { supabase } from '../utils/supabaseClient';
 
@@ -67,7 +68,23 @@ const Dashboard = () => {
   const [expandedMajor, setExpandedMajor] = useState(null);
   const [selectedStudent, setSelectedStudent] = useState(null);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:5000/check-auth", {
+          credentials: "include",
+        });
+        if (!response.ok) {
+          navigate("/login");
+        }
+      } catch (err) {
+        console.error("Auth check failed:", err);
+        navigate("/login");
+      }
+    };
+
     const fetchData = async () => {
       const { data, error } = await supabase
         .from('hasil_survei')
@@ -76,8 +93,9 @@ const Dashboard = () => {
       if (!error) setAllData(data || []);
       setLoading(false);
     };
-    fetchData();
-  }, []);
+
+    checkAuth().then(() => fetchData());
+  }, [navigate]);
 
   // Group by jurusan
   const grouped = {};
@@ -115,11 +133,11 @@ const Dashboard = () => {
       <div className="container mx-auto px-4 max-w-5xl">
         {/* Header */}
         <div className="mb-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-black text-[#004825] mb-2">
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-2">
             Dashboard <span className="text-[#01ae5a]">Survei</span>
           </h1>
           <p className="text-gray-500 text-lg">
-            Rekapitulasi data hasil survei minat siswa
+            Data hasil survei minat siswa
           </p>
         </div>
 
@@ -270,13 +288,13 @@ const Dashboard = () => {
               {selectedStudent.skor_detail && (
                 <div className="mb-6">
                   <h3 className="text-lg font-bold text-gray-700 mb-4 text-center">Distribusi Skor Minat</h3>
-                  <ResponsiveContainer width="100%" height={280}>
+                  <ResponsiveContainer width="100%" height={380}>
                     <PieChart>
                       <Pie
                         data={getPieData(selectedStudent.skor_detail)}
                         cx="50%"
-                        cy="50%"
-                        outerRadius={110}
+                        cy="40%"
+                        outerRadius={100}
                         dataKey="value"
                         labelLine={false}
                         label={renderCustomLabel}
@@ -287,8 +305,20 @@ const Dashboard = () => {
                       </Pie>
                       <Tooltip content={<CustomTooltip />} />
                       <Legend
-                        formatter={(value) => (
-                          <span className="text-xs text-gray-600 font-medium">{value}</span>
+                        content={({ payload }) => (
+                          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-1 px-2">
+                            {payload.map((entry, index) => (
+                              <div key={`item-${index}`} className="flex items-center gap-1.5">
+                                <div 
+                                  className="w-3 h-3 rounded-[3px] flex-shrink-0" 
+                                  style={{ backgroundColor: entry.color }} 
+                                />
+                                <span className="text-[11px] sm:text-xs text-gray-600 font-medium whitespace-nowrap">
+                                  {entry.value}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
                         )}
                       />
                     </PieChart>
