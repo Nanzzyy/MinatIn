@@ -16,7 +16,7 @@ const Login = () => {
             formData.append("username", username);
             formData.append("password", password);
 
-            const response = await fetch("http://127.0.0.1:5000/login", {
+            const response = await fetch("http://localhost:5000/login", {
                 method: "POST",
                 body: formData,
                 credentials: "include",

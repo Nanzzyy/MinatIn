@@ -39,7 +39,7 @@ const Navbar = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/check-auth", {
+        const response = await fetch("http://localhost:5000/check-auth", {
           credentials: "include",
         });
         if (response.ok) {
@@ -57,7 +57,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await fetch("http://127.0.0.1:5000/logout", {
+      await fetch("http://localhost:5000/logout", {
         method: "POST",
         credentials: "include",
       });

@@ -63,7 +63,13 @@ def upload(nama_siswa, kelas_siswa, jurusan_siswa, dominan_id, scores):
 
 @login_manager.user_loader
 def load_user(user_id):
-    response = supabase.table("user").select("*").eq("id", user_id).execute()
+    # Ensure user_id is integer if that's what the DB uses
+    try:
+        user_id_int = int(user_id)
+    except (ValueError, TypeError):
+        user_id_int = user_id
+
+    response = supabase.table("user").select("*").eq("id", user_id_int).execute()
 
     if response.data:
         user_data = response.data[0]
@@ -71,10 +77,16 @@ def load_user(user_id):
     return None
 
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/login", methods=["POST"])
 def login():
-    username = request.form.get("username")
-    password = request.form.get("password")
+    # Support both JSON and Form data
+    if request.is_json:
+        data = request.get_json()
+    else:
+        data = request.form
+
+    username = data.get("username")
+    password = data.get("password")
 
     if not username or not password:
         return jsonify({"error": "Username and password are required"}), 400
@@ -82,7 +94,7 @@ def login():
     response = supabase.table("user").select("*").eq("username", username).execute()
     user_list = response.data
 
-    if user_list and user_list[0].get("password") == password:
+    if user_list and str(user_list[0].get("password")) == str(password):
         user = User(user_list[0]["id"], user_list[0].get("username"))
         login_user(user)
         return jsonify({"message": "Login successful", "status": "success"}), 200
