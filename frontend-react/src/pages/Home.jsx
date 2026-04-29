@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/supabaseClient';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { IMAGES } from '../assets/images';
 
 // import disable scroll
 import disableScroll from 'disable-scroll';
@@ -19,6 +20,7 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({ nama: '', kelas: '', jurusan: '' });
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleStartSurvey = () => {
     navigate('/survei', { state: formData });
@@ -38,7 +40,7 @@ const Home = () => {
     // Fetch Campus Data
     const fetchCampuses = async () => {
       try {
-        const { data, error } = await supabase.from('kampus').select('*').limit(8);
+        const { data, error } = await supabase.from('kampus').select('*').order('id_kampus', { ascending: true }).limit(8);
         if (error) throw error;
         setCampuses(data || []);
       } catch (e) {
@@ -49,6 +51,20 @@ const Home = () => {
     };
     fetchCampuses();
   }, []);
+
+  // Handle Hash Scroll when navigating from other pages
+  useEffect(() => {
+    if (window.location.hash) {
+      const id = window.location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        // Delay slightly to ensure elements are rendered and AOS is initialized
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      }
+    }
+  }, [location.hash]); // Listen to hash changes
 
   return (
     <div>
@@ -134,9 +150,9 @@ const Home = () => {
 
         <div className="hidden lg:flex absolute bottom-0 left-0 w-[45%] max-w-[550px] justify-start items-end z-0" data-aos="fade-right">
           <div className="absolute top-[-80px] right-[25%] animate-bounce">
-            <img src="https://www.figma.com/api/mcp/asset/769fc295-0534-479e-8ba3-b5068e221333" className="w-[120px] -rotate-12" alt="Light" />
+            <img src={IMAGES.SURVEY_LIGHTBULB} className="w-[120px] -rotate-12" alt="Light" />
           </div>
-          <img src="https://www.figma.com/api/mcp/asset/74745e95-c41a-446b-b936-7f81074d9b20" className="w-full scale-x-[-1] drop-shadow-2xl" alt="Idea" />
+          <img src={IMAGES.SURVEY_GIRL_IDEA} className="w-full scale-x-[-1] drop-shadow-2xl" alt="Idea" />
         </div>
       </section>
 
@@ -176,7 +192,9 @@ const Home = () => {
                     <div className="bg-white w-[300px] md:w-[340px] rounded-[20px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_60px_rgba(0,0,0,0.2)] group overflow-hidden">
                       <div className="h-[200px] md:h-[220px] overflow-hidden relative">
                         <img 
-                          src="https://www.figma.com/api/mcp/asset/94abba19-fb26-4353-9543-4c7768aaca20" 
+                          src={campus.foto_kampus 
+                            ? `https://lzeydgdaeywdnrjhydyy.supabase.co/storage/v1/object/public/foto_kampus/${campus.foto_kampus}` 
+                            : IMAGES.CAMPUS_THUMBNAIL} 
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                           alt={campus.nama_kampus} 
                         />
@@ -244,7 +262,7 @@ const Home = () => {
           </div>
           
           <div className="hidden lg:block w-[400px] h-[450px] bg-gradient-to-br from-light-mint to-white rounded-[40px] shadow-2xl relative overflow-hidden" data-aos="fade-left">
-            <img src="https://www.figma.com/api/mcp/asset/ef61d72d-b3e8-4101-a67d-de828007a597" className="w-full h-full object-cover" alt="MinatIn Team" />
+            <img src={IMAGES.CAMPUS_RECTANGLE} className="w-full h-full object-cover" alt="MinatIn Team" />
             <div className="absolute inset-0 bg-black/10 hover:bg-transparent transition-all" />
           </div>
         </div>

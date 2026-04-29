@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../utils/supabaseClient';
 import { motion } from 'framer-motion';
+import { IMAGES } from '../assets/images';
 
 const DaftarKampus = () => {
   const [campuses, setCampuses] = useState([]);
@@ -111,7 +112,9 @@ const DaftarKampus = () => {
                 >
                     <div className="w-full h-[220px] overflow-hidden relative">
                         <img 
-                          src="https://www.figma.com/api/mcp/asset/94abba19-fb26-4353-9543-4c7768aaca20" 
+                          src={campus.foto_kampus 
+                            ? `https://lzeydgdaeywdnrjhydyy.supabase.co/storage/v1/object/public/foto_kampus/${campus.foto_kampus}` 
+                            : IMAGES.CAMPUS_THUMBNAIL} 
                           alt={campus.nama_kampus} 
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         />

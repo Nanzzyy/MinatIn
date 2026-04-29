@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
+import { IMAGES } from '../assets/images';
 
 import questionsData from '../../JSON/question.json';
 
@@ -128,7 +129,13 @@ const Survei = () => {
                          className="flex flex-col border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-all"
                        >
                           <div className="h-40 overflow-hidden relative bg-gray-200">
-                             <img src={"https://www.figma.com/api/mcp/asset/94abba19-fb26-4353-9543-4c7768aaca20"} className="w-full h-full object-cover" alt="Campus"/>
+                             <img 
+                                src={campus.foto_kampus 
+                                  ? `https://lzeydgdaeywdnrjhydyy.supabase.co/storage/v1/object/public/foto_kampus/${campus.foto_kampus}` 
+                                  : IMAGES.CAMPUS_THUMBNAIL} 
+                                className="w-full h-full object-cover" 
+                                alt={campus.nama_kampus}
+                              />
                           </div>
                           <div className="p-5 flex flex-col gap-2 bg-white flex-1">
                              <h4 className="font-bold text-lg text-gray-900 line-clamp-1">{campus.nama_kampus}</h4>
