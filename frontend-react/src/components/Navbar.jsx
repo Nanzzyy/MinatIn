@@ -94,12 +94,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-0 group">
-          <span className={`text-3xl md:text-[36px] font-bold transition-colors ${scrolled || !isHome ? "text-black" : "text-black"}`}>
-            Minat
-          </span>
-          <span className="bg-[#00793e] flex items-center justify-center rounded-[6px] px-2 py-1 ml-1 shadow-lg group-hover:scale-110 transition-transform">
-            <span className="font-bold text-[24px] md:text-[30px] text-white leading-none">in</span>
-          </span>
+          <img src="/Img/Logo MinatIn.svg" alt="MinatIn Logo" className="h-[70px]" />
+
         </Link>
 
         <ul className="hidden lg:flex items-center gap-[40px]">
@@ -160,11 +156,10 @@ const Navbar = () => {
                   }`}
                 >
                   <svg 
-                    viewBox="0 0 24 24" 
-                    className="w-6 h-6"
+                    xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black" class="bi bi-person" viewBox="0 0 16 16"
                     style={{ fill: scrolled || !isHome ? "#000" : "#fff", transition: "fill 0.5s ease" }}
                   >
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+                   <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
                   </svg>
                 </button>
                 <AnimatePresence>
@@ -202,7 +197,10 @@ const Navbar = () => {
                   scrolled || !isHome ? "bg-black/5" : "bg-white/30"
                 }`}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black" class="bi bi-person" viewBox="0 0 16 16">
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black" class="bi bi-person" viewBox="0 0 16 16"
+                  style={{ fill: scrolled || !isHome ? "#000" : "#fff", transition: "fill 0.5s ease" }}
+                >
                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
                 </svg>
               </Link>

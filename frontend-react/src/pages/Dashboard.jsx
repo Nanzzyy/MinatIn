@@ -11,6 +11,8 @@ const MATCH_MAP = {
   'AKL':    ['Bisnis & Manajemen'],
   'OTKP':   ['Bisnis & Manajemen'],
   'BDP':    ['Bisnis & Manajemen'],
+  'PH':     ['Jasa, Pariwisata & Kesehatan'],
+  'TB':     ['Jasa, Pariwisata & Kesehatan'],
   'Lainnya': null, // tidak dihitung
   'IPA/IPS': null, // tidak dihitung
 };
