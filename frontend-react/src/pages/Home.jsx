@@ -89,21 +89,21 @@ const Home = () => {
           </svg>
         </div>
 
-        <div className="px-6 lg:px-24 flex-grow flex items-center relative z-10 pt-[100px]">
+        <div className="px-4 sm:px-6 lg:px-24 flex-grow flex items-center relative z-10 pt-[80px] sm:pt-[100px]">
           <div className="w-full lg:pr-[35%]" data-aos="fade-right">
-            <h1 className="font-black text-white leading-tight mb-8 text-[40px] md:text-[64px]">
+            <h1 className="font-black text-white leading-tight mb-5 sm:mb-8 text-[26px] sm:text-[36px] md:text-[52px] lg:text-[64px]">
               Bingung mau kuliah dimana ?<br />
               Yuk coba ikuti survei<br />
-              <span className="flex items-center gap-4 mt-2">
+              <span className="flex items-center gap-3 mt-1 sm:mt-2">
                 bersama
-                <img src="/Img/Logo MinatIn Hero.svg" alt="MinatIn" className="h-[60px] md:h-[90px] animate-pulse" />
+                <img src="/Img/Logo MinatIn Hero.svg" alt="MinatIn" className="h-[36px] sm:h-[55px] md:h-[75px] lg:h-[90px] animate-pulse" />
               </span>
             </h1>
-            <div className="flex flex-col sm:flex-row gap-6">
-              <button onClick={() => setShowModal(true)} className="bg-[#00793e] text-white px-10 py-4 rounded-full font-bold text-2xl border-2 border-[#00793e] hover:bg-[#004825] transition-all shadow-xl hover:scale-105">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
+              <button onClick={() => setShowModal(true)} className="bg-[#00793e] text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-base sm:text-xl border-2 border-[#00793e] hover:bg-[#004825] transition-all shadow-xl hover:scale-105">
                 Ikut Survei &rarr;
               </button>
-              <Link to="/daftar-kampus" className="inline-block bg-transparent text-white px-10 py-4 rounded-full font-bold text-2xl border-2 border-white hover:bg-white/10 transition-all text-center shadow-xl hover:scale-105">
+              <Link to="/daftar-kampus" className="inline-block bg-transparent text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full font-bold text-base sm:text-xl border-2 border-white hover:bg-white/10 transition-all text-center shadow-xl hover:scale-105">
                 Jelajahi Kampus &rarr;
               </Link>
             </div>
@@ -116,7 +116,7 @@ const Home = () => {
       </header>
 
       {/* SURVEI SECTION */}
-      <section id="survei" className="py-24 bg-white relative overflow-hidden shadow-[0_-15px_30px_rgba(0,0,0,0.1)]">
+      <section id="survei" className="py-12 sm:py-24 bg-white relative overflow-hidden shadow-[0_-15px_30px_rgba(0,0,0,0.1)]">
         <div className="absolute left-0 top-0 w-full lg:w-[60%] h-full pointer-events-none z-0">
           <svg viewBox="0 0 600 800" fill="none" className="absolute top-0 left-[-100px] w-full h-full" preserveAspectRatio="none">
             <path d="M-100 0C50 0 150 200 200 400C250 600 350 700 600 800L-100 800Z" fill="#b7ffdc" fillOpacity="0.2"/>
@@ -124,36 +124,36 @@ const Home = () => {
           </svg>
         </div>
 
-        <div className="container mx-auto px-6 relative z-10 flex justify-end">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10 flex justify-end">
           <div className="w-full lg:w-[55%] flex flex-col md:pl-10" data-aos="fade-left">
-            <h2 className="text-4xl md:text-5xl font-black mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-black mb-6 sm:mb-12">
               Tata Cara <span className="text-main-green">Mengisi Survei !</span>
             </h2>
 
-            <div className="relative mb-12">
-              <div className="absolute left-[30px] top-[30px] bottom-[30px] w-0 border-l-4 border-dashed border-gray-300" />
-              <div className="flex flex-col gap-10">
+            <div className="relative mb-6 sm:mb-12">
+              <div className="absolute left-[22px] sm:left-[30px] top-[22px] bottom-[22px] sm:top-[30px] sm:bottom-[30px] w-0 border-l-4 border-dashed border-gray-300" />
+              <div className="flex flex-col gap-5 sm:gap-10">
                 {[
                   { id: 1, text: <>Klik Tombol "<span className="font-semibold text-dark-green">Masuk Survei</span>"</> },
                   { id: 2, text: "Masukkan Jurusan SMK" },
                   { id: 3, text: <>Masukkan nama <span className="font-bold text-dark-green">(opsional)</span></> },
                   { id: 4, text: "Jawab pertanyaan dengan jujur" },
                 ].map((step) => (
-                  <div key={step.id} className="flex items-center gap-6 relative z-10" data-aos="fade-up">
-                    <div className="w-[60px] h-[60px] bg-dark-green rounded-full flex items-center justify-center shadow-xl">
-                      <span className="text-white text-3xl font-black">{step.id}</span>
+                  <div key={step.id} className="flex items-center gap-4 sm:gap-6 relative z-10" data-aos="fade-up">
+                    <div className="w-[44px] h-[44px] sm:w-[60px] sm:h-[60px] bg-dark-green rounded-full flex items-center justify-center shadow-xl flex-shrink-0">
+                      <span className="text-white text-xl sm:text-3xl font-black">{step.id}</span>
                     </div>
-                    <p className="text-2xl font-light text-black">{step.text}</p>
+                    <p className="text-base sm:text-xl md:text-2xl font-light text-black">{step.text}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => {setShowModal(true); disableScroll.on()}} className="bg-dark-green hover:bg-main-green text-white px-8 py-3 rounded-2xl font-bold text-xl transition-all shadow-xl hover:-translate-y-1">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <button onClick={() => {setShowModal(true); disableScroll.on()}} className="bg-dark-green hover:bg-main-green text-white px-6 sm:px-8 py-3 rounded-2xl font-bold text-base sm:text-xl transition-all shadow-xl hover:-translate-y-1">
                 Masuk Survei &rarr;
               </button>
-              <Link to="/daftar-kampus" className="border-[5px] border-light-green text-light-green hover:bg-light-green hover:text-white px-8 py-3 rounded-2xl font-bold text-xl transition-all shadow-xl text-center hover:-translate-y-1">
+              <Link to="/daftar-kampus" className="border-[3px] sm:border-[5px] border-light-green text-light-green hover:bg-light-green hover:text-white px-6 sm:px-8 py-3 rounded-2xl font-bold text-base sm:text-xl transition-all shadow-xl text-center hover:-translate-y-1">
                 Jelajahi Kampus &rarr;
               </Link>
             </div>
@@ -169,7 +169,7 @@ const Home = () => {
       </section>
 
       {/* CAMPUS CAROUSEL */}
-      <section id="kampus" className="py-24 relative overflow-hidden" style={{ backgroundImage: kampusGradient }}>
+      <section id="kampus" className="py-12 sm:py-24 relative overflow-hidden" style={{ backgroundImage: kampusGradient }}>
         <div className="absolute inset-0 pointer-events-none z-0">
           <svg viewBox="0 0 1440 600" fill="none" className="absolute w-full h-full top-0 left-0" preserveAspectRatio="none">
             <path d="M1440 100C1000 300 800 -100 0 300L0 600L1440 600Z" fill="white" fillOpacity="0.05"/>
@@ -177,12 +177,12 @@ const Home = () => {
           </svg>
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-            <h2 className="text-4xl md:text-6xl font-black text-white drop-shadow-lg" data-aos="fade-right">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-8 sm:mb-12 gap-3 sm:gap-4">
+            <h2 className="text-2xl sm:text-4xl md:text-6xl font-black text-white drop-shadow-lg" data-aos="fade-right">
               Rekomendasi <br /> Kampus Favorit
             </h2>
-            <Link to="/daftar-kampus" className="text-2xl text-white hover:text-[#b7ffdc] transition-all flex items-center group" data-aos="fade-left">
+            <Link to="/daftar-kampus" className="text-base sm:text-2xl text-white hover:text-[#b7ffdc] transition-all flex items-center group" data-aos="fade-left">
               Eksplorasi Lagi <span className="ml-2 group-hover:translate-x-2 transition-transform">&rarr;</span>
             </Link>
           </div>
@@ -253,7 +253,7 @@ const Home = () => {
       </section>
 
       {/* TENTANG KAMI SECTION */}
-      <section id="tentang" className="py-24 bg-white relative overflow-hidden">
+      <section id="tentang" className="py-12 sm:py-24 bg-white relative overflow-hidden">
         <div className="absolute left-0 top-0 w-full lg:w-[60%] h-full pointer-events-none z-0 opacity-10">
           <svg viewBox="0 0 800 600" fill="none" className="absolute top-0 left-[-150px] w-full h-[120%]" preserveAspectRatio="none">
             <path d="M0 600C200 600 350 400 450 100C550 0 700 0 800 0L0 0Z" fill="#01ae5a" />
@@ -261,11 +261,11 @@ const Home = () => {
           </svg>
         </div>
 
-        <div className="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-16">
-          <div className="w-full lg:w-[60%] bg-white border-2 border-black rounded-[30px] p-10 md:p-16 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]" data-aos="zoom-in">
-            <h2 className="text-4xl md:text-5xl font-black text-dark-green mb-8">Tentang Kami</h2>
-            <p className="text-xl md:text-2xl font-light text-dark-green leading-relaxed text-justify">
-              <span className="font-bold text-3xl">MinatIn </span>
+        <div className="container mx-auto px-4 sm:px-6 relative z-10 flex flex-col lg:flex-row items-center gap-8 sm:gap-16">
+          <div className="w-full lg:w-[60%] bg-white border-2 border-black rounded-[20px] sm:rounded-[30px] p-6 sm:p-10 md:p-16 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]" data-aos="zoom-in">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-dark-green mb-4 sm:mb-8">Tentang Kami</h2>
+            <p className="text-sm sm:text-lg md:text-xl font-light text-dark-green leading-relaxed text-justify">
+              <span className="font-bold text-base sm:text-2xl">MinatIn </span>
               adalah platform digital inovatif yang dibangun oleh <span className="font-bold italic text-[#01ae5a]">6xKu</span> pada tahun 2026. 
               Misi kami adalah membantu siswa SMK/SMA menemukan jalan masa depan mereka dengan mencocokkan minat, bakat, dan karakter melalui survei psikologis yang akurat. 
               <br /><br />

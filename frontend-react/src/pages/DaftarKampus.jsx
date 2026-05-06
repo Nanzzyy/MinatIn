@@ -51,38 +51,38 @@ const DaftarKampus = () => {
   }, [searchTerm, campuses]);
 
   return (
-    <main className="w-full bg-[#0a0a0a] min-h-screen pt-[120px] pb-24 relative overflow-hidden">
+    <main className="w-full bg-[#0a0a0a] min-h-screen pt-[80px] sm:pt-[120px] pb-16 sm:pb-24 relative overflow-hidden">
       {/* Background Glows */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#01ae5a]/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#004825]/20 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 max-w-[1200px] relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 max-w-[1200px] relative z-10">
         
         {/* Title Area */}
-        <div className="flex flex-col mb-16 text-center" data-aos="fade-up">
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-6">
+        <div className="flex flex-col mb-8 sm:mb-16 text-center" data-aos="fade-up">
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-black text-white mb-3 sm:mb-6">
             Daftar Kampus <span className="text-[#01ae5a]">Pilihan Terbaik</span>
           </h1>
-          <p className="text-gray-400 text-lg md:text-xl font-light max-w-2xl mx-auto">
+          <p className="text-gray-400 text-sm sm:text-lg md:text-xl font-light max-w-2xl mx-auto">
             Temukan berbagai kampus terbaik yang telah kami kurasi khusus untuk membantu menentukan masa depan Anda.
           </p>
         </div>
 
         {/* Search Bar */}
-        <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center mb-16 w-full max-w-4xl mx-auto bg-[#1a1a1a] p-3 rounded-2xl shadow-2xl border border-white/10 gap-4" data-aos="fade-up" data-aos-delay="50">
-           <div className="flex flex-1 items-center px-4">
-              <svg className="w-6 h-6 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center mb-8 sm:mb-16 w-full max-w-4xl mx-auto bg-[#1a1a1a] p-2 sm:p-3 rounded-2xl shadow-2xl border border-white/10 gap-3 sm:gap-4" data-aos="fade-up" data-aos-delay="50">
+           <div className="flex flex-1 items-center px-3 sm:px-4">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <input 
                 type="text" 
                 placeholder="Cari nama kampus atau lokasi..." 
-                className="w-full bg-transparent border-none text-white px-4 py-2 focus:outline-none placeholder-gray-500 font-light text-lg"
+                className="w-full bg-transparent border-none text-white px-3 sm:px-4 py-2 focus:outline-none placeholder-gray-500 font-light text-sm sm:text-lg"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
            </div>
-           <div className="px-6 py-2 bg-[#004825] text-[#b7ffdc] rounded-xl font-semibold text-sm">
+           <div className="px-4 sm:px-6 py-2 bg-[#004825] text-[#b7ffdc] rounded-xl font-semibold text-xs sm:text-sm text-center">
              {filteredCampuses.length} Kampus Ditemukan
            </div>
         </div>

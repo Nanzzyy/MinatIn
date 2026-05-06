@@ -77,22 +77,22 @@ const Survei = () => {
 
 
   return (
-    <main className="w-full bg-[#f8f9fa] min-h-screen pt-[120px] pb-24 relative overflow-hidden">
+    <main className="w-full bg-[#f8f9fa] min-h-screen pt-[80px] sm:pt-[120px] pb-16 sm:pb-24 relative overflow-hidden">
       {/* Background accents */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#01ae5a]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-[#004825]/5 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 max-w-4xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 max-w-4xl relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-3 sm:mb-4">
             Survei <span className="text-[#01ae5a]">Minat</span>
           </h1>
-          <p className="text-gray-500 text-lg">Pilih jawaban yang paling sesuai dengan diri Anda.</p>
+          <p className="text-gray-500 text-sm sm:text-lg">Pilih jawaban yang paling sesuai dengan diri Anda.</p>
         </motion.div>
 
         {result ? (
@@ -100,25 +100,25 @@ const Survei = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-[24px] p-8 md:p-12 shadow-xl border border-gray-100"
+            className="bg-white rounded-[16px] sm:rounded-[24px] p-5 sm:p-8 md:p-12 shadow-xl border border-gray-100"
           >
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">Hasil Analisis Minat & Bakat</h2>
-              <p className="text-gray-500">Berdasarkan jawaban survei Anda.</p>
+            <div className="text-center mb-6 sm:mb-10">
+              <h2 className="text-xl sm:text-3xl font-bold text-gray-900 mb-2">Hasil Analisis Minat & Bakat</h2>
+              <p className="text-gray-500 text-sm sm:text-base">Berdasarkan jawaban survei Anda.</p>
             </div>
             
-            <div className="bg-[#f0f9f4] border border-[#01ae5a]/20 rounded-2xl p-8 mb-10 text-center">
-              <h3 className="text-xl font-medium text-gray-600 mb-2">Bidang Paling Mendominasi:</h3>
-              <div className="text-4xl font-black text-[#01ae5a]">{result.dominan}</div>
+            <div className="bg-[#f0f9f4] border border-[#01ae5a]/20 rounded-2xl p-5 sm:p-8 mb-6 sm:mb-10 text-center">
+              <h3 className="text-base sm:text-xl font-medium text-gray-600 mb-2">Bidang Paling Mendominasi:</h3>
+              <div className="text-2xl sm:text-4xl font-black text-[#01ae5a]">{result.dominan}</div>
             </div>
 
-            <div className="mb-12">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Distribusi Nilai:</h3>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div className="mb-8 sm:mb-12">
+              <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Distribusi Nilai:</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
                 {Object.entries(result.skor || {}).map(([cat, score]) => (
-                  <div key={cat} className={`p-4 rounded-xl text-center border ${cat === result.dominan_id ? 'border-[#01ae5a] bg-green-50 shadow-md' : 'border-gray-200 bg-gray-50'}`}>
-                    <div className="text-sm text-gray-500 font-medium mb-1">{CATEGORY_NAMES[cat] || cat}</div>
-                    <div className={`text-2xl font-bold ${cat === result.dominan_id ? 'text-[#01ae5a]' : 'text-gray-800'}`}>{score} Points</div>
+                  <div key={cat} className={`p-3 sm:p-4 rounded-xl text-center border ${cat === result.dominan_id ? 'border-[#01ae5a] bg-green-50 shadow-md' : 'border-gray-200 bg-gray-50'}`}>
+                    <div className="text-xs sm:text-sm text-gray-500 font-medium mb-1">{CATEGORY_NAMES[cat] || cat}</div>
+                    <div className={`text-lg sm:text-2xl font-bold ${cat === result.dominan_id ? 'text-[#01ae5a]' : 'text-gray-800'}`}>{score} Pts</div>
                   </div>
                 ))}
               </div>
@@ -170,14 +170,14 @@ const Survei = () => {
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit}>
-            <div className="space-y-8">
+            <div className="space-y-5 sm:space-y-8">
               {questionsData.map((q, qIndex) => (
                 <motion.div
                   key={q.id}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: (qIndex % 5) * 0.1 }}
-                  className="bg-[#e4e4e4] rounded-[24px] p-8 md:p-10 shadow-sm"
+                  className="bg-[#e4e4e4] rounded-[16px] sm:rounded-[24px] p-4 sm:p-8 md:p-10 shadow-sm"
                 >
                   <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6 font-['Poppins']">
                     {qIndex + 1}. {q.pertanyaan}
