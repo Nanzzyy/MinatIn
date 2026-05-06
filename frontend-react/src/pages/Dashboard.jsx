@@ -76,7 +76,7 @@ const Dashboard = () => {
     const checkAuth = async () => {
       try {
         const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/check-auth`, {
-          credentials: \"include\",
+          credentials: "include",
         });
         if (!response.ok) {
           navigate("/login");

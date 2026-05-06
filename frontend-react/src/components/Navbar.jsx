@@ -40,7 +40,7 @@ const Navbar = () => {
     const checkAuth = async () => {
       try {
         const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/check-auth`, {
-          credentials: \"include\",
+          credentials: "include",
         });
         if (response.ok) {
           setIsLoggedIn(true);
@@ -58,8 +58,8 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/logout`, {
-        method: \"POST\",
-        credentials: \"include\",
+        method: "POST",
+        credentials: "include",
       });
       setIsLoggedIn(false);
       setIsDropdownOpen(false);
