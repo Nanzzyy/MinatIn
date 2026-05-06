@@ -70,7 +70,7 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: "Home", id: "home", path: "/" },
+    { name: "Home", id: "home", path: "/#home" },
     { name: "Survei", id: "survei", path: "/#survei" },
     { name: "Daftar Kampus", id: "kampus", path: "/daftar-kampus" },
     { name: "Tentang Kami", id: "tentang", path: "/#tentang" },
