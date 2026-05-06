@@ -22,8 +22,8 @@ login_manager.login_view = 'login'
 
 # Load questions from JSON
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# Note: assuming MinatIn/frontend-react/JSON/question.json
-json_path = os.path.join(BASE_DIR, '..', 'frontend-react', 'JSON', 'question.json')
+# Note: reading from local copy of question.json in backend-python
+json_path = os.path.join(BASE_DIR, 'question.json')
 with open(json_path, 'r', encoding='utf-8') as f:
     questions_data = json.load(f)
 
