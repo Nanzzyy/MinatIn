@@ -16,7 +16,7 @@ const Login = () => {
             formData.append("username", username);
             formData.append("password", password);
 
-            const response = await fetch("http://localhost:5000/login", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/login`, {
                 method: "POST",
                 body: formData,
                 credentials: "include",
