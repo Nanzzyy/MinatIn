@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True)
+CORS(app, supports_credentials=True, origins=["http://localhost:5173", "https://minat-in.vercel.app"])
 app.secret_key = os.getenv('FLASK_SECRET_KEY', 'aDprIuo4Ir6Qt5tfGQN84qbTymp7mZDmVp6zCNx44JU')
 
 # Supabase setup
@@ -188,4 +188,5 @@ def submit():
     })
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000, host='0.0.0.0')
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
