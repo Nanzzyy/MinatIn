@@ -80,6 +80,10 @@ def load_user(user_id):
     return None
 
 
+@app.route("/")
+def index():
+    return jsonify({"status": "MinatIn API is running perfectly!"}), 200
+
 @app.route("/login", methods=["POST"])
 def login():
     # Support both JSON and Form data
