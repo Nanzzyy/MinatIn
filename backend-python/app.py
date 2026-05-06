@@ -4,14 +4,17 @@ from flask import Flask, request, redirect, url_for, jsonify
 from flask_login import LoginManager, login_user, login_required, UserMixin, current_user, logout_user  
 from flask_cors import CORS
 from supabase import create_client, Client
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
-app.secret_key = 'aDprIuo4Ir6Qt5tfGQN84qbTymp7mZDmVp6zCNx44JU'
+app.secret_key = os.getenv('FLASK_SECRET_KEY', 'aDprIuo4Ir6Qt5tfGQN84qbTymp7mZDmVp6zCNx44JU')
 
 # Supabase setup
-url: str = 'https://lzeydgdaeywdnrjhydyy.supabase.co'
-key: str = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6ZXlkZ2RhZXl3ZG5yamh5ZHl5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjE4ODY5NCwiZXhwIjoyMDkxNzY0Njk0fQ.k0B-uGhMzazwJtyAcdoS-6genEWtR0UJiEAG7xrmPLw'
+url: str = os.getenv('SUPABASE_URL')
+key: str = os.getenv('SUPABASE_ANON_KEY')
 supabase: Client = create_client(url, key)
 
 login_manager = LoginManager(app)
