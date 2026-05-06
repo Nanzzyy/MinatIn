@@ -19,10 +19,22 @@ const Home = () => {
   // Popup state
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({ nama: '', kelas: '', jurusan: '' });
+  const [formErrors, setFormErrors] = useState({ kelas: false, jurusan: false });
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleStartSurvey = () => {
+    const isKelasEmpty = !formData.kelas.trim();
+    const isJurusanEmpty = !formData.jurusan;
+
+    if (isKelasEmpty || isJurusanEmpty) {
+      setFormErrors({ kelas: isKelasEmpty, jurusan: isJurusanEmpty });
+      return;
+    }
+
+    setFormErrors({ kelas: false, jurusan: false });
+    disableScroll.off();
+    window.scrollTo(0, 0);
     navigate('/survei', { state: formData });
   };
 
@@ -290,36 +302,43 @@ const Home = () => {
                <input 
                  type="text" 
                  value={formData.kelas}
-                 onChange={(e) => setFormData({...formData, kelas: e.target.value})}
-                 className="w-full bg-transparent border-b-[2px] border-[#004825] outline-none text-gray-800 pb-1 italic placeholder-gray-500"
+                 onChange={(e) => {
+                   setFormData({...formData, kelas: e.target.value});
+                   if (formErrors.kelas) setFormErrors({...formErrors, kelas: false});
+                 }}
+                 className={`w-full bg-transparent border-b-[2px] outline-none pb-1 italic placeholder-gray-500 ${formErrors.kelas ? "border-red-500 text-red-500" : "border-[#004825] text-gray-800"}`}
                  placeholder="Contoh: XI RPL 2 / XI IPA 1"
-                 required
                />
+               {formErrors.kelas && <span className="text-red-500 text-sm mt-1 block">Kelas harus diisi</span>}
             </div>
 
             {/* Field Jurusan */}
             <div className="px-6 pt-4 pb-12">
                <label className="text-[#004825] font-bold text-[16px] mb-6 block">Jurusan SMK :</label>
-               <div className="relative border-b-[2px] border-[#004825]">
+               <div className={`relative border-b-[2px] ${formErrors.jurusan ? "border-red-500" : "border-[#004825]"}`}>
                  <select 
-                   className="w-full bg-transparent outline-none text-gray-800 pb-1 appearance-none cursor-pointer italic placeholder-gray-500 font-medium"
+                   className={`w-full bg-transparent outline-none pb-1 appearance-none cursor-pointer italic placeholder-gray-500 font-medium ${formErrors.jurusan ? "text-red-500" : "text-gray-800"}`}
                    value={formData.jurusan}
-                   onChange={(e) => setFormData({...formData, jurusan: e.target.value})}
+                   onChange={(e) => {
+                     setFormData({...formData, jurusan: e.target.value});
+                     if (formErrors.jurusan) setFormErrors({...formErrors, jurusan: false});
+                   }}
                  >
                    <option value="" disabled hidden>Pilih Jurusan Kamu</option>
                    <option value="RPL">Rekayasa Perangkat Lunak (RPL)</option>
                    <option value="TKJ">Teknik Komputer Jaringan (TKJ)</option>
                    <option value="MM">Multimedia / DKV</option>
                    <option value="AKL">Akuntansi</option>
-                   <option value="OTKP">Perkantoran (OTKP)</option>
-                   <option value="BDP">Pemasaran (BDP)</option>
+                   <option value="PH">Perhotelan (PH)</option>
+                   <option value="TB">Tata Boga (TB)</option>
                    <option value="IPA/IPS">SMA (IPA/IPS)</option>
                    <option value="Lainnya">Lainnya</option>
                  </select>
-                 <div className="absolute right-1 top-0 bottom-0 flex items-center pointer-events-none text-[#004825]">
+                 <div className={`absolute right-1 top-0 bottom-0 flex items-center pointer-events-none ${formErrors.jurusan ? "text-red-500" : "text-[#004825]"}`}>
                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 9l-7 7-7-7" /></svg>
                  </div>
                </div>
+               {formErrors.jurusan && <span className="text-red-500 text-sm mt-1 block">Jurusan harus dipilih</span>}
             </div>
 
             {/* Action Buttons */}
@@ -331,7 +350,7 @@ const Home = () => {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>
               </button>
               <button 
-                onClick={() => {handleStartSurvey(); disableScroll.off(); window.scrollTo(0,0)}}
+                onClick={handleStartSurvey}
                 className="bg-[#004825] hover:bg-[#00361a] text-white px-5 py-2 rounded-[6px] font-bold text-[15px] shadow-md flex items-center gap-1 transition-all"
               >
                 Masuk Survei &rarr;

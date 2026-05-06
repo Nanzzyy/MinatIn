@@ -5,6 +5,14 @@ import { IMAGES } from '../assets/images';
 
 import questionsData from '../../JSON/question.json';
 
+const CATEGORY_NAMES = {
+    'Tek': 'Teknologi & Teknik',
+    'Sen': 'Seni & Desain Kreatif',
+    'Sos': 'Sosial & Komunikasi',
+    'Bis': 'Bisnis & Manajemen',
+    'Jas': 'Jasa, Pariwisata & Kesehatan'
+};
+
 const Survei = () => {
   const location = useLocation();
   const userData = location.state || { nama: '', kelas: '', jurusan: '' };
@@ -109,7 +117,7 @@ const Survei = () => {
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 {Object.entries(result.skor || {}).map(([cat, score]) => (
                   <div key={cat} className={`p-4 rounded-xl text-center border ${cat === result.dominan_id ? 'border-[#01ae5a] bg-green-50 shadow-md' : 'border-gray-200 bg-gray-50'}`}>
-                    <div className="text-sm text-gray-500 font-medium mb-1">{cat}</div>
+                    <div className="text-sm text-gray-500 font-medium mb-1">{CATEGORY_NAMES[cat] || cat}</div>
                     <div className={`text-2xl font-bold ${cat === result.dominan_id ? 'text-[#01ae5a]' : 'text-gray-800'}`}>{score} Points</div>
                   </div>
                 ))}
