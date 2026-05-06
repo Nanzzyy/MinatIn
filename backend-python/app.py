@@ -9,8 +9,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True, origins=["http://localhost:5173", "https://minat-in.vercel.app"])
+# Gunakan CORS("*") agar fleksibel untuk semua domain (aman jika dikombinasi dengan credentials, flask-cors akan mengatasinya)
+CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
 app.secret_key = os.getenv('FLASK_SECRET_KEY', 'aDprIuo4Ir6Qt5tfGQN84qbTymp7mZDmVp6zCNx44JU')
+
+# Agar cookie sesi bisa dikirim dari Vercel ke Railway (Beda domain / Cross-Origin)
+app.config.update(
+    SESSION_COOKIE_SAMESITE="None",
+    SESSION_COOKIE_SECURE=True,
+)
 
 # Supabase setup
 url: str = os.getenv('SUPABASE_URL')
