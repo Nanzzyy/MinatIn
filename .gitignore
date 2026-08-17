@@ -8,3 +8,10 @@ dist/
 .idea/
 *.pem
 yarn-error.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
