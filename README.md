@@ -1,5 +1,12 @@
 # MinatIn 🎓
 
+## Live deployment
+
+- Public site: [https://minat-in.vercel.app](https://minat-in.vercel.app) — checked on 2026-10-07; HTTP GET returned `200`.
+- URL identified from the user's Vercel dashboard screenshot. README changes document the observed deployment; they do not configure Vercel or trigger deployment.
+
+Use this link in a portfolio only after checking the live user journey and confirming the site contains no private/student data. Verify the project owner's permission before public showcase.
+
 > *Temukan kampus impianmu berdasarkan minat dan bakatmu!*
 
 **MinatIn** adalah platform digital interaktif yang dirancang untuk membantu siswa/i menentukan langkah selanjutnya dalam pendidikan tinggi. Seringkali siswa merasa bingung dalam memilih jurusan dan kampus. MinatIn hadir dengan solusi cerdas: cukup dengan menjawab serangkaian pertanyaan survei terkait minat dan bakat, sistem kami akan langsung memberikan **rekomendasi kampus dan bidang studi** yang paling sesuai dengan profilmu!
