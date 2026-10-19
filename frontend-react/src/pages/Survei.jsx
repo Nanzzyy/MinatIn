@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import { IMAGES } from '../assets/images';
+import { apiUrl } from '../utils/api';
 
 import questionsData from '../../JSON/question.json';
 
@@ -48,7 +49,7 @@ const Survei = () => {
         jurusan_siswa: userData.jurusan || '-'
       };
 
-      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/survei/submit`, {
+      const response = await fetch(apiUrl('/survei/submit'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

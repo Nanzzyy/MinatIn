@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { supabase } from '../utils/supabaseClient';
+import { apiUrl } from '../utils/api';
 
 // ----------- Mapping jurusan → kategori yang "cocok" -----------
 const MATCH_MAP = {
@@ -75,7 +76,7 @@ const Dashboard = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/check-auth`, {
+        const response = await fetch(apiUrl("/check-auth"), {
           credentials: "include",
         });
         if (!response.ok) {

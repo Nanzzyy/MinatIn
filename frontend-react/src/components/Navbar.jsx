@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { apiUrl } from "../utils/api";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -50,7 +51,7 @@ const Navbar = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/check-auth`, {
+        const response = await fetch(apiUrl("/check-auth"), {
           credentials: "include",
         });
         if (response.ok) {
@@ -68,7 +69,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/logout`, {
+      await fetch(apiUrl("/logout"), {
         method: "POST",
         credentials: "include",
       });
