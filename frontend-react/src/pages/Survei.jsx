@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import { IMAGES } from '../assets/images';
 import { apiUrl } from '../utils/api';
+import { publicStorageUrl } from '../utils/supabaseClient';
 
 import questionsData from '../../JSON/question.json';
 
@@ -140,7 +141,7 @@ const Survei = () => {
                           <div className="h-40 overflow-hidden relative bg-gray-200">
                              <img 
                                 src={campus.foto_kampus 
-                                  ? `https://lzeydgdaeywdnrjhydyy.supabase.co/storage/v1/object/public/foto_kampus/${campus.foto_kampus}` 
+                                  ? publicStorageUrl('foto_kampus', campus.foto_kampus)
                                   : IMAGES.CAMPUS_THUMBNAIL} 
                                 className="w-full h-full object-cover" 
                                 alt={campus.nama_kampus}

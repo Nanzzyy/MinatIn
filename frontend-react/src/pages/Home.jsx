@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { supabase } from '../utils/supabaseClient';
+import { publicStorageUrl, supabase } from '../utils/supabaseClient';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
@@ -205,7 +205,7 @@ const Home = () => {
                       <div className="h-[200px] md:h-[220px] overflow-hidden relative">
                         <img 
                           src={campus.foto_kampus 
-                            ? `https://lzeydgdaeywdnrjhydyy.supabase.co/storage/v1/object/public/foto_kampus/${campus.foto_kampus}` 
+                            ? publicStorageUrl('foto_kampus', campus.foto_kampus)
                             : IMAGES.CAMPUS_THUMBNAIL} 
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                           alt={campus.nama_kampus} 
